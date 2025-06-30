@@ -282,8 +282,9 @@
   <div class="tab-content" id="toolsTab">
     <div class="container">
       <div class="header">Proxy Tools</div>
-      <button class="btn" onclick="window.open('https://repos.ecosyste.ms/hosts/GitHub/owners/Exploit-Master122 ', '_blank')">More Unblockers</button>
+      <button class="btn" onclick="window.open('https://repos.ecosyste.ms/hosts/GitHub/owners/Exploit-Master122 ', '_blank')">My project/Coding</button>
       <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/Ext-remover ', '_blank')">ExtRemover2</button>
+      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/RandomUnblockers/ ', '_blank')">Exploit Library</button>
     </div>
   </div>
 
@@ -360,6 +361,32 @@
     </div>
   </div>
 
+     <!-- Bypass Mode -->
+    <<div class="header" style="margin-top: 20px;">Bypass Mode (Enables the Leave site popup,I'ts recommended!!)</div>
+      <script>
+  let bypassEnabled = false;
+
+  function toggleBypassMode() {
+    bypassEnabled = !bypassEnabled;
+
+    if (bypassEnabled) {
+      window.addEventListener('beforeunload', beforeUnloadHandler);
+      alert("Bypass Mode ON:\nReload/Close warning enabled.");
+    } else {
+      window.removeEventListener('beforeunload', beforeUnloadHandler);
+      alert("Bypass Mode OFF:\nWarning disabled.");
+    }
+  }
+
+  function beforeUnloadHandler(e) {
+    e.preventDefault();
+    e.returnValue = 'Changes you made may not be saved.';
+    return 'Changes you made may not be saved.';
+  }
+</script>
+
+
+  
   <script>
     function showTab(tabId, btn) {
       document.querySelectorAll('.tab-content').forEach(tc => {
