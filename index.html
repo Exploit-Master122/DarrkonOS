@@ -292,21 +292,29 @@
     </div>
   </div>
 
-  <!-- Browser Tab -->
-  <div class="tab-content" id="browserTab">
-    <div class="container">
-      <div class="header">Unblocked Browser!</div>
-      <input type="text" id="urlInput" placeholder="Enter URL or Search Qwant/WebCrawl3r" />
-      <div class="btn-container">
-        <button class="btn" onclick="launchProxy('iframe')">Ulraviolet (Best)</button>
-        <button class="btn" onclick="launchProxy('helios')">Helios</button>
-        <button class="btn" onclick="launchDataCloak()">Data Cloak</button>
-        <button class="btn" onclick="launchKahoot()">Szvy Loader</button>
-        <button class="btn" onclick="toggleFullscreen('movieFrame')">Fullscreen</button>
-      </div>
-      <div id="output"></div>
+<!-- Browser Tab -->
+<div class="tab-content" id="browserTab">
+  <div class="container">
+    <div class="header">Unblocked Browser!</div>
+
+    <input type="text" id="urlInput" placeholder="Enter URL or Search Qwant/WebCrawl3r" />
+
+    <div class="btn-container">
+      <button class="btn" onclick="launchProxy('iframe')">Ultraviolet (Best)</button>
+      <button class="btn" onclick="launchProxy('helios')">Helios</button>
+      <button class="btn" onclick="launchDataCloak()">Data Cloak</button>
+      <button class="btn" onclick="launchKahoot()">Szvy Loader</button>
+      <button class="btn" onclick="toggleFullscreen('movieFrame')">Fullscreen</button>
     </div>
+
+    <div id="movieFrameContainer" style="margin-top: 20px; width: 100%;">
+      <iframe id="movieFrame" style="width: 100%; height: 60vh; border: none;"></iframe>
+    </div>
+
+    <div id="output" style="margin-top: 20px;"></div>
   </div>
+</div>
+
 
   <!-- Movies Tab -->
   <div class="tab-content" id="moviesTab">
@@ -325,71 +333,78 @@
     </div>
   </div>
 
-  <!-- Games tab!! -->
-  <div class="tab-content" id="gamesLaunchTab">
-    <div class="container">
-      <div class="header">Launch the Games!!</div>
-      <div class="btn-container">
-        <a href="https://unblocked-games.s3.amazonaws.com/index.html ">Nova Online Play</a><br>
-        <a href="https://exploit-master122.github.io/fractions4kids/ ">SZ Games</a><br>
-        <a href="https://exploit-master122.github.io/Time-Shooter-3/ ">Time Shooter 3</a><br>
-        <a href="https://www.crazygames.nl/ ">Crazygames (Dutch)</a><br>
-        <a href="https://hotkitchenbag.com/ ">Roblox (Now.gg)</a><br>
-        <a href="https://exploit-master122.github.io/vex7/ ">Stickman Vex 7</a><br>
-        <a href="https://dinguschan-owo.github.io/dingusproxy/ ">DingusProxy v3</a><br>
-        If the links are blocked,put them in the browser,and for some reason the crazygames website is entirely in dutch.It should work,though,especially the Nova Games.Fullscreen will be implemented soon,don't worry.The now.gg roblox may not work,try a few times,and the github io ones are all unblocked!
-      </div>
+<!-- Games tab!! -->
+<div class="tab-content" id="gamesLaunchTab">
+  <div class="container">
+    <div class="header">Launch the Games!!</div>
+    <div class="btn-container">
+      <a href="https://unblocked-games.s3.amazonaws.com/index.html">Nova Online Play</a><br>
+      <a href="https://exploit-master122.github.io/fractions4kids/">SZ Games</a><br>
+      <a href="https://exploit-master122.github.io/Time-Shooter-3/">Time Shooter 3</a><br>
+      <a href="https://www.crazygames.nl/">Crazygames (Dutch)</a><br>
+      <a href="https://hotkitchenbag.com/">Roblox (Now.gg)</a><br>
+      <a href="https://exploit-master122.github.io/vex7/">Stickman Vex 7</a><br>
+      <a href="https://dinguschan-owo.github.io/dingusproxy/">DingusProxy v3</a><br>
     </div>
+    <p>
+      If the links are blocked, put them in the browser. For some reason the CrazyGames website is in Dutch. It should work though—especially Nova Games. Fullscreen will be implemented soon, don't worry. The Now.gg Roblox may not work; try a few times. The GitHub.io ones are all unblocked!
+    </p>
   </div>
+</div>
 
+<!-- Info Tab!! -->
+<div class="tab-content" id="infocreditsTab">
+  <div class="container">
+    <div class="header">Info/Contact</div>
+    <a href="https://github.com/Exploit-Master122/Credits">Credits</a><br>
+    <a href="https://exploit-master122.github.io/darrkonad/">Darrkon Ad/Discord</a><br>
+  </div>
+</div> <!-- Properly closed,Oof,Synax error -->
 
-  <!-- Info Tab!! -->
-  <div class="tab-content" id="infocreditsTab">
-    <div class="container">
-      <div class="header">Info/Contact</div>
-    <a href="https://github.com/Exploit-Master122/Credits... ">Credits</a><br>
-    <a href="https://exploit-master122.github.io/darrkonad/ ">Darrkon Ad/Discord</a><br>
-      
-  
-  
-  
-  
-  <!-- Settings Tab -->
-  <div class="tab-content" id="settingsTab">
-    <div class="container">
-      <div class="header">Settings</div>
-      <!-- Logout & Reset -->
-      <div class="btn-container">
-        <button class="btn" onclick="clearAuth()">Log out</button>
-        <button class="btn" onclick="resetAll()">Delete Search Data</button>
-        <button class="btn" onclick="wtfisthis()">Bypass Mode</button>
-      </div>
-      <!-- Quick Cloaking -->
-      <div class="header" style="margin-top: 20px;">Quick Cloaking</div>
-      <div class="btn-container">
-        <button class="btn" onclick="document.title='Google Docs'">Google Docs</button>
-        <button class="btn" onclick="document.title='Classroom'">Classroom</button>
-        <button class="btn" onclick="document.title='Home'">Home</button>
-        <button class="btn" onclick="document.title='Creekside PL Time'">Creekside PL Time</button>
-        <button class="btn" onclick="document.title='New Tab'">New Tab</button>
-        <button class="btn" onclick="document.title='Aeries login'">Aeries login</button>
-        Join the discord for more links,updates,web dev,and more! [Discord](https://discord.gg/fWcUWqCy) Also,The website does not have a panic button yet,So search up "How to use Alt+Tab".Bypass mode is always on,it enables the leave site popup.
-      </div>
+<!-- Settings Tab -->
+<div class="tab-content" id="settingsTab">
+  <div class="container">
+    <div class="header">Settings</div>
+    <!-- Logout & Reset -->
+    <div class="btn-container">
+      <button class="btn" onclick="clearAuth()">Log out</button>
+      <button class="btn" onclick="resetAll()">Delete Search Data</button>
+      <button class="btn" onclick="wtfisthis()">Bypass Mode</button>
     </div>
+
+    <!-- Quick Cloaking -->
+    <div class="header" style="margin-top: 20px;">Quick Cloaking</div>
+    <div class="btn-container">
+      <button class="btn" onclick="document.title='Google Docs'">Google Docs</button>
+      <button class="btn" onclick="document.title='Classroom'">Classroom</button>
+      <button class="btn" onclick="document.title='Home'">Home</button>
+      <button class="btn" onclick="document.title='Creekside PL Time'">Creekside PL Time</button>
+      <button class="btn" onclick="document.title='New Tab'">New Tab</button>
+      <button class="btn" onclick="document.title='Aeries login'">Aeries login</button>
+    </div>
+
+    <p>
+      Join the Discord for more links, updates, web dev, and more:
+      <a href="https://discord.gg/fWcUWqCy" target="_blank">Join Discord</a>
+    </p>
+    <p>
+      The website does not have a panic button yet, so search up "How to use Alt+Tab".
+      Bypass mode is always on—it enables the leave site popup.
+    </p>
   </div>
-  
+</div>
+
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script src="script.js"></script>
-  
-  
-  <script>
+
+<script>
   window.addEventListener('beforeunload', function (e) {
     e.preventDefault();
     e.returnValue = 'Changes you made may not be saved.';
   });
 </script>
-  
-  
+
   <script>
     function showTab(tabId, btn) {
       document.querySelectorAll('.tab-content').forEach(tc => {
