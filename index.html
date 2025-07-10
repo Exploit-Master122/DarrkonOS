@@ -209,17 +209,26 @@
         justify-content: center;
       }
     }
+
+    .favicon {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
   </style>
 </head>
 <body>
   <div id="tsparticles"></div>
+
   <!-- Auth -->
   <div class="auth-container" id="authContainer">
     <div class="header">Password Protected</div>
-    <div class="subheader">Enter the access password</div>
+    <input type="text" id="usernameInput" placeholder="Enter Username" />
     <input type="password" id="passwordInput" placeholder="Enter Password" />
     <button class="btn" onclick="checkPassword()">Enter</button>
   </div>
+
   <!-- Top Tab Bar -->
   <div class="topbar" id="topbar" style="display: none;">
     <button class="tabBtn active" onclick="showTab('homeTab', this)">Home</button>
@@ -231,7 +240,8 @@
     <button class="tabBtn" onclick="showTab('settingsTab', this)">Settings</button>
     <button class="tabBtn" onclick="showTab('gamesLaunchTab', this)">Games</button>
     <button class="tabBtn" onclick="showTab('infocreditsTab', this)">Info</button>
-   </div>
+  </div>
+
   <!-- Home Tab -->
   <div class="tab-content active" id="homeTab">
     <div class="container">
@@ -239,284 +249,323 @@
       <div class="subheader">Where shadows browse in peace! =-)</div>
     </div>
   </div>
+
   <!-- Cloak Tab -->
   <div class="tab-content" id="cloakTab">
     <div class="container">
       <div class="header">Cloaking</div>
-      <button class="btn" onclick="window.open('  https://github.com/Exploit-Master122/Darrkonv6/blob/main/darrkon.html  ', '_blank')">Download File...</button>
-      <button class="btn" onclick="window.open(' https://thelearningcentral.global.ssl.fastly.net/math.html?u=/szvy/szvy/hvtrs8%2F-dwcidwcigm.aoo ', '_blank')">Szvy Duckduckgo!...</button>
-      <button class="btn" onclick="window.open('  https://app.koyeb.com/deploy?type=git&repository=github.com/UseInterstellar/Interstellar ', '_blank')">DNS Deployment</button>
+      <button class="btn" onclick="window.open(' https://github.com/Exploit-Master122/Darrkonv6/blob/main/darrkon.html ', '_blank')">Download File...</button>
+      <button class="btn" onclick="window.open('https://thelearningcentral.global.ssl.fastly.net/math.html?u=/szvy/szvy/hvtrs8%2F-dwcidwcigm.aoo', '_blank')">Szvy Duckduckgo!...</button>
+      <button class="btn" onclick="window.open(' https://app.koyeb.com/deploy?type=git&repository=github.com/UseInterstellar/Interstellar', '_blank')">DNS Deployment</button>
     </div>
   </div>
+
   <!-- Links Tab -->
   <div class="tab-content" id="gamesTab">
-  <div class="container" style="max-height: 80vh; overflow-y: auto;">
-    <div class="header">Games/Proxy links!</div>
-    <ul>
-      <li><a href=" https://us4-z.global.ssl.fastly.net/ " target="_blank">US4 Proxy Z</a></li>
-      <li><a href="https://us4-v.global.ssl.fastly.net/ " target="_blank">US4 Proxy V</a></li>
-      <li><a href="https://cesium.insviro.com/ " target="_blank">Cesium Browser</a></li>
-      <li><a href="https://writingessayepicguide.lol/en_US/ " target="_blank">Nebula Browser</a></li>
-      <li><a href="https://msr25s-8080.csb.app/ " target="_blank">Nebula (Alt)</a></li>
-      <li><a href="https://travel.kigurun.ru/ " target="_blank">DayDreamX</a></li>
-      <li><a href="https://pcbtnghvzx.elliott.ca/ " target="_blank">UniUb 1</a></li>
-      <li><a href="https://ogiqbptdki.joemullins.info/ " target="_blank">UniUb 2</a></li>
-      <li><a href="https://z-proxy.github.io/Z-Kit/home.html " target="_blank">Z-Kit WORKING!!</a></li>
-      <li><a href="https://maths.onl/ " target="_blank">UniUB WORKING!!</a></li>
-      <li><a href="https://void.ubyis.org/ " target="_blank">Void Network</a></li>
-      <li><a href="https://ubgusa.com/ " target="_blank">America’s Unbl*cker</a></li>
-      <li><a href="https://vans.webconstructions.co.uk/ " target="_blank">CloudBurst Proxy</a></li>
-      <li><a href="https://thirteenfortysix-l5lnm.ondigitalocean.app/ " target="_blank">1346.lol WORKING!!</a></li>
-      <li><a href="https://englishwork4school.mka.in/ " target="_blank">SVY Central</a></li>
-      <li><a href="https://oil.radicalnetworks.org/ " target="_blank">Emerald</a></li>
-      <li><a href="https://hexcein-moonsters.github.io/polytrack/ " target="_blank">PolyTrack Unblocked...</a></li>
-      <li><a href="https://www.hoodamath.com/games/run.html#gsc.tab=0" target="_blank">Unblocked Games!</a></li>
-      <li><a href=" https://github.com/Exploit-Master122/Vex1 " target="_blank">Vex1 Games!!(Working!!)</a></li>
-      <li><a href="https://exploit-master122.github.io/Nyx-/active/ " target="_blank">Nyx Proxy.(A really good proxy source code by ChompyPotato,Deployed by me!</a></li>
-    </ul>
+    <div class="container" style="max-height: 80vh; overflow-y: auto;">
+      <div class="header">Games/Proxy links!</div>
+      <ul>
+        <li><a href=" https://us4-z.global.ssl.fastly.net/ " target="_blank">US4 Proxy Z</a></li>
+        <li><a href="https://us4-v.global.ssl.fastly.net/ " target="_blank">US4 Proxy V</a></li>
+        <li><a href="https://cesium.insviro.com/ " target="_blank">Cesium Browser</a></li>
+        <li><a href="https://writingessayepicguide.lol/en_US/ " target="_blank">Nebula Browser</a></li>
+        <li><a href="https://msr25s-8080.csb.app/ " target="_blank">Nebula (Alt)</a></li>
+        <li><a href="https://travel.kigurun.ru/ " target="_blank">DayDreamX</a></li>
+        <li><a href="https://pcbtnghvzx.elliott.ca/ " target="_blank">UniUb 1</a></li>
+        <li><a href="https://ogiqbptdki.joemullins.info/ " target="_blank">UniUb 2</a></li>
+        <li><a href="https://z-proxy.github.io/Z-Kit/home.html " target="_blank">Z-Kit WORKING!!</a></li>
+        <li><a href="https://maths.onl/ " target="_blank">UniUB WORKING!!</a></li>
+        <li><a href="https://void.ubyis.org/ " target="_blank">Void Network</a></li>
+        <li><a href="https://ubgusa.com/ " target="_blank">America’s Unbl*cker</a></li>
+        <li><a href="https://vans.webconstructions.co.uk/ " target="_blank">CloudBurst Proxy</a></li>
+        <li><a href="https://thirteenfortysix-l5lnm.ondigitalocean.app/ " target="_blank">1346.lol WORKING!!</a></li>
+        <li><a href="https://englishwork4school.mka.in/ " target="_blank">SVY Central</a></li>
+        <li><a href="https://oil.radicalnetworks.org/ " target="_blank">Emerald</a></li>
+        <li><a href="https://hexcein-moonsters.github.io/polytrack/ " target="_blank">PolyTrack Unblocked...</a></li>
+        <li><a href="https://www.hoodamath.com/games/run.html#gsc.tab=0" target="_blank">Unblocked Games!</a></li>
+        <li><a href=" https://github.com/Exploit-Master122/Vex1 " target="_blank">Vex1 Games!!(Working!!)</a></li>
+        <li><a href="https://exploit-master122.github.io/Nyx-/active/ " target="_blank">Nyx Proxy.(A really good proxy source code by ChompyPotato,Deployed by me!</a></li>
+      </ul>
+    </div>
   </div>
-</div>
+
   <!-- Tools Tab -->
   <div class="tab-content" id="toolsTab">
     <div class="container">
       <div class="header">Proxy Tools</div>
-      <button class="btn" onclick="window.open('https://repos.ecosyste.ms/hosts/GitHub/owners/Exploit-Master122  ', '_blank')">My project/Coding</button>
-      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/Ext-remover  ', '_blank')">ExtRemover2</button>
-      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/RandomUnblockers/  ', '_blank')">Exploit Library</button>
-      <button class="btn" onclick="window.open('https://exploit-master122.github.io/Helios-AI/  ', '_blank')">Qwen.AI</button>
+      <button class="btn" onclick="window.open('https://repos.ecosyste.ms/hosts/GitHub/owners/Exploit-Master122 ', '_blank')">My project/Coding</button>
+      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/Ext-remover ', '_blank')">ExtRemover2</button>
+      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/RandomUnblockers/ ', '_blank')">Exploit Library</button>
+      <button class="btn" onclick="window.open('https://exploit-master122.github.io/Helios-AI/ ', '_blank')">Qwen.AI</button>
       <button class="btn" onclick="window.open('devtools://devtools/bundled/inspector.html')">DevTools Chrome</button>
-      <button class="btn" onclick="window.open('https://docs.titaniumnetwork.org/')">Titanium Network</button>
+      <button class="btn" onclick="window.open('https://docs.titaniumnetwork.org/ ')">Titanium Network</button>
     </div>
   </div>
-<!-- Browser Tab -->
-<div class="tab-content" id="browserTab">
-  <div class="container">
-    <div class="header">Unblocked Browser!</div>
-    <input type="text" id="urlInput" placeholder="Enter URL or Search Qwant/WebCrawl3r" />
-    <div class="btn-container">
-      <button class="btn" onclick="launchProxy('iframe')">Ultraviolet (Best)</button>
-      <button class="btn" onclick="launchProxy('helios')">Helios</button>
-      <button class="btn" onclick="launchDataCloak()">Data Cloak</button>
-      <button class="btn" onclick="launchKahoot()">Szvy Loader</button>
-      <button class="btn" onclick="toggleFullscreen('movieFrame')">Fullscreen</button>
-    </div>
-    <div id="movieFrameContainer" style="margin-top: 20px; width: 100%;">
-      <iframe id="movieFrame" style="width: 100%; height: 60vh; border: none;"></iframe>
-    </div>
-  </div>
-</div>
-<!-- Movies Tab -->
-<div class="tab-content" id="moviesTab">
-  <div class="container">
-    <div class="header">We have way to many apps...</div>
-    <div class="btn-container">
-      <button class="btn" onclick="loadMovieSite('https://watch.vidora.su ')">Vidora Entertainment</button>
-      <button class="btn" onclick="loadMovieSite('https://schoolwork.broomleigh.org/mastery?auth=q3hcgrv ')">VidStream TV</button>
-      <button class="btn" onclick="loadMovieSite('https://movies.waves.lat ')">Waves Encrypted Movies</button>
-      <button class="btn" onclick="loadMovieSite('https://9anime.org.lv/ ')">9Anime Unblocked</button>
-      <button class="btn" onclick="loadMovieSite('https://pluto.tv/ ')">Pluto Television...</button>
-       <button class="btn" onclick="loadMovieSite('https://schoolwork.broomleigh.org/mastery?auth=3eec1im ')">Discord Web</button>
-      <button class="btn" onclick="loadMovieSite('https://hoodagames.com/ ')">HoodaGames</button>
-      <button class="btn" onclick="loadMovieSite('https://blooket.broomleigh.org/mastery?auth=8w5ungp ')">Roblox Browser</button>
-      <button class="btn" onclick="loadMovieSite('https://www.freemathhelp.com/ ')">MathHelp Unblocked</button>
-      <button class="btn" onclick="loadMovieSite('https://caveduck.io/ ')">Character.AI</button>
-      <button class="btn" onclick="toggleFullscreen('movieFrameMovies')">Fullscreen(Click me!)</button>
-      <button class="btn" onclick="loadMovieSite('https://chat.qwen.ai ')">ChatGPT</button>
-      <button class="btn" onclick="loadMovieSite('https://ext-remover.net/ ')">Ext-Remover</button>
-      <button class="btn" onclick="loadMovieSite('https://edpuzzle.com.de/math.html?u=/szvy/szvy/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F ')">Geforce Now</button>
-      <button class="btn" onclick="loadMovieSite('https://stim.io/ ')">Stim.io</button>
-      <button class="btn" onclick="loadMovieSite('https://schoolwork.broomleigh.org/mastery?auth=mqijnem ')">TikTok Shorts</button>
-      <button class="btn" onclick="loadMovieSite('https://calculus.fasoclash.com/&?q=Geforce%20Now ')">Geforce Now</button>
-      <button class="btn" onclick="loadMovieSite('https://classroom6x-plus.github.io/new/ ')">Clasroom6x</button>
-      <button class="btn" onclick="loadMovieSite('https://history.rest/math.html?u=/szvy/szvy/hvtrs8%2F-cnowd%2Cbmoqtgrmif.aoo%2Fcuvh-rggksvep ')">Boosteroid Cloud Gaming</button>
-      <button class="btn" onclick="loadMovieSite('https://kozow-25.lovable.app/ ')">Link Generator</button>
-      <button class="btn" onclick="loadMovieSite('https://app.flamepass.com/ ')">Flampass.App</button>
-    </div>
-    <div id="movieFrameContainerMovies" style="margin-top: 20px; width: 100%;">
-      <iframe id="movieFrameMovies" style="width: 100%; height: 60vh; border: none;"></iframe>
-    </div>
-  </div>
-</div>
-<!-- Games tab!! -->
-<div class="tab-content" id="gamesLaunchTab">
-  <div class="container">
-    <div class="header">Launch the Games!!</div>
-    <div class="btn-container">
-      <a href="https://unblocked-games.s3.amazonaws.com/index.html ">Nova Online Play</a><br>
-      <a href="https://exploit-master122.github.io/fractions4kids/ ">SZ Games</a><br>
-      <a href="https://exploit-master122.github.io/Time-Shooter-3/ ">Time Shooter 3</a><br>
-      <a href="https://www.crazygames.nl/ ">Crazygames (Dutch)</a><br>
-      <a href="https://exploit-master122.github.io/vex7/ ">Stickman Vex 7</a><br>
-      <a href="https://dinguschan-owo.github.io/dingusproxy/ ">DingusProxy v3 WORKING PROXY!!</a><br>
-    </div>
-    <p>
-      If the links are blocked, put them in the browser. For some reason the CrazyGames website is in Dutch. It should work though—especially Nova Games. Fullscreen will be implemented soon, don't worry. The Now.gg Roblox may not work; try a few times. The GitHub.io ones are all unblocked! Try the other apps,they should work,too,
-    </p>
-  </div>
-</div>
-<!-- Info Tab!! -->
-<div class="tab-content" id="infocreditsTab">
-  <div class="container">
-    <div class="header">Info/Contact</div>
-    <a href="https://github.com/Exploit-Master122/Credits... ">Credits!! (Please Click these links)</a><br>
-    <a href="https://exploit-master122.github.io/darrkonad/ ">Darrkon Ad/Discord</a><br>
-    <a href="https://www.patreon.com/c/DarrkonNetwork ">Buy/Donate Darrkon v7 Patreon</a><br>
-  </div>
-</div>
 
-   <script>
-        document.addEventListener('keydown', function(event) {
-            // Check if Control key and 'Q' key are pressed
-            if (event.ctrlKey && event.key === 'q') {
-                event.preventDefault(); // Prevent the default action
-                window.location.href = 'https://classroom.google.com'; // Redirect to Google Classroom
-            }
-        });
-    </script>
-</head>
-<body>
- 
+  <!-- Browser Tab -->
+  <div class="tab-content" id="browserTab">
+    <div class="container">
+      <div class="header">Unblocked Browser!</div>
+      <input type="text" id="urlInput" placeholder="Enter URL or Search Qwant/WebCrawl3r" />
+      <div class="btn-container">
+        <button class="btn" onclick="launchProxy('iframe')">Ultraviolet (Best)</button>
+        <button class="btn" onclick="launchProxy('helios')">Helios</button>
+        <button class="btn" onclick="launchDataCloak()">Data Cloak</button>
+        <button class="btn" onclick="launchKahoot()">Szvy Loader</button>
+        <button class="btn" onclick="toggleFullscreen('movieFrame')">Fullscreen</button>
+      </div>
+      <div id="movieFrameContainer" style="margin-top: 20px; width: 100%;">
+        <iframe id="movieFrame" style="width: 100%; height: 60vh; border: none;"></iframe>
+      </div>
+    </div>
+  </div>
 
-  
+  <!-- Movies Tab -->
+  <div class="tab-content" id="moviesTab">
+    <div class="container">
+      <div class="header">We have way to many apps...</div>
+      <div class="btn-container">
+        <button class="btn" onclick="loadMovieSite('https://watch.vidora.su ')">Vidora Entertainment</button>
+        <button class="btn" onclick="loadMovieSite('https://schoolwork.broomleigh.org/mastery?auth=q3hcgrv')">VidStream TV</button>
+        <button class="btn" onclick="loadMovieSite(' https://movies.waves.lat ')">Waves Encrypted Movies</button>
+        <button class="btn" onclick="loadMovieSite('https://9anime.org.lv/ ')">9Anime Unblocked</button>
+        <button class="btn" onclick="loadMovieSite('https://pluto.tv/ ')">Pluto Television...</button>
+        <button class="btn" onclick="loadMovieSite('https://schoolwork.broomleigh.org/mastery?auth=3eec1im')">Discord Web</button>
+        <button class="btn" onclick="loadMovieSite(' https://hoodagames.com/ ')">HoodaGames</button>
+        <button class="btn" onclick="loadMovieSite('https://blooket.broomleigh.org/mastery?auth=8w5ungp')">Roblox Browser</button>
+        <button class="btn" onclick="loadMovieSite(' https://www.freemathhelp.com/ ')">MathHelp Unblocked</button>
+        <button class="btn" onclick="loadMovieSite('https://caveduck.io/ ')">Character.AI</button>
+        <button class="btn" onclick="toggleFullscreen('movieFrameMovies')">Fullscreen(Click me!)</button>
+        <button class="btn" onclick="loadMovieSite('https://chat.qwen.ai ')">ChatGPT</button>
+        <button class="btn" onclick="loadMovieSite('https://ext-remover.net/ ')">Ext-Remover</button>
+        <button class="btn" onclick="loadMovieSite('https://edpuzzle.com.de/math.html?u=/szvy/szvy/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F')">Geforce Now</button>
+        <button class="btn" onclick="loadMovieSite(' https://stim.io/ ')">Stim.io</button>
+        <button class="btn" onclick="loadMovieSite('https://schoolwork.broomleigh.org/mastery?auth=mqijnem')">TikTok Shorts</button>
+        <button class="btn" onclick="loadMovieSite(' https://calculus.fasoclash.com/&?q=Geforce%20Now')">Geforce Now</button>
+        <button class="btn" onclick="loadMovieSite(' https://classroom6x-plus.github.io/new/ ')">Clasroom6x</button>
+        <button class="btn" onclick="loadMovieSite('https://history.rest/math.html?u=/szvy/szvy/hvtrs8%2F-cnowd%2Cbmoqtgrmif.aoo%2Fcuvh-rggksvep')">Boosteroid Cloud Gaming</button>
+        <button class="btn" onclick="loadMovieSite(' https://kozow-25.lovable.app/ ')">Link Generator</button>
+        <button class="btn" onclick="loadMovieSite('https://app.flamepass.com/ ')">Flampass.App</button>
+      </div>
+      <div id="movieFrameContainerMovies" style="margin-top: 20px; width: 100%;">
+        <iframe id="movieFrameMovies" style="width: 100%; height: 60vh; border: none;"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Games Tab -->
+  <div class="tab-content" id="gamesLaunchTab">
+    <div class="container">
+      <div class="header">Launch the Games!!</div>
+      <div class="btn-container">
+        <a href="https://unblocked-games.s3.amazonaws.com/index.html ">Nova Online Play</a><br>
+        <a href="https://exploit-master122.github.io/fractions4kids/ ">SZ Games</a><br>
+        <a href="https://exploit-master122.github.io/Time-Shooter-3/ ">Time Shooter 3</a><br>
+        <a href="https://www.crazygames.nl/ ">Crazygames (Dutch)</a><br>
+        <a href="https://exploit-master122.github.io/vex7/ ">Stickman Vex 7</a><br>
+        <a href="https://dinguschan-owo.github.io/dingusproxy/ ">DingusProxy v3 WORKING PROXY!!</a><br>
+      </div>
+      <p>If the links are blocked, put them in the browser. For some reason the CrazyGames website is in Dutch. It should work though—especially Nova Games. Fullscreen will be implemented soon, don't worry. The Now.gg Roblox may not work; try a few times. The GitHub.io ones are all unblocked! Try the other apps, they should work too.</p>
+    </div>
+  </div>
+
+  <!-- Info Tab -->
+  <div class="tab-content" id="infocreditsTab">
+    <div class="container">
+      <div class="header">Info/Contact</div>
+      <a href="https://github.com/Exploit-Master122/Credits... " target="_blank">Credits!! (Please Click these links)</a><br>
+      <a href="https://exploit-master122.github.io/darrkonad/ " target="_blank">Darrkon Ad/Discord</a><br>
+      <a href="https://www.patreon.com/c/DarrkonNetwork " target="_blank">Buy/Donate Darrkon v7 Patreon</a><br>
+    </div>
+  </div>
+
   <!-- Settings Tab -->
-<div class="tab-content" id="settingsTab">
-  <div class="container">
-    <div class="header">Settings</div>
-    <div class="btn-container">
-      <button class="btn" onclick="clearAuth()">Log out</button>
-      <button class="btn" onclick="resetAll()">Delete Search Data</button>
-      <button class="btn" onclick="wtfisthis()">Bypass Mode</button>
-      <button class="btn" onclick="uwuwegotdaurl()">Panic Button</button>
+  <div class="tab-content" id="settingsTab">
+    <div class="container">
+      <div class="header">Settings</div>
+      <div class="btn-container">
+        <button class="btn" onclick="clearAuth()">Log out</button>
+        <button class="btn" onclick="resetAll()">Delete Search Data</button>
+        <button class="btn" onclick="wtfisthis()">Bypass Mode</button>
+        <button class="btn" onclick="uwuwegotdaurl()">Panic Button</button>
+      </div>
+      <div class="header" style="margin-top: 20px;">Quick Cloaking</div>
+      <div class="btn-container">
+        <button class="btn" onclick="document.title='Google Docs'"><img class="favicon" src="https://www.google.com/favicon.ico " />Google Docs</button>
+        <button class="btn" onclick="document.title='Classroom'"><img class="favicon" src="https://classroom.google.com/favicon.ico " />Classroom</button>
+        <button class="btn" onclick="document.title='Home'"><img class="favicon" src="https://www.gstatic.com/education/formulas2/353497047/en/home_48dp.png " />Home</button>
+        <button class="btn" onclick="document.title='Creekside PL Time'">Creekside PL Time</button>
+        <button class="btn" onclick="document.title='New Tab'"><img class="favicon" src="https://www.gstatic.com/education/formulas2/353497047/en/new_tab_48dp.png " />New Tab</button>
+        <button class="btn" onclick="document.title='Aeries login'"><img class="favicon" src="https://aeries.net/wp-content/uploads/2021/03/cropped-Aeries-Favicon-192x192.png " />Aeries Login</button>
+      </div>
+      <div class="header" style="margin-top: 20px;">Customize Look</div>
+      <div class="btn-container">
+        <button class="btn" onclick="toggleParticles()">Toggle Particles</button>
+        <button class="btn" onclick="setTheme('bubblegum')">Bubblegum (Pink)</button>
+        <button class="btn" onclick="setTheme('darknight')">Dark Night (Black)</button>
+        <button class="btn" onclick="setTheme('ocean')">Ocean (Blue)</button>
+        <button class="btn" onclick="setTheme('blueskies')">Blue Skies (Sky)</button>
+        <button class="btn" onclick="setTheme('default')">Default Theme</button>
+      </div>
+      <p>Join the Discord for more links, updates, web dev, and more!<br><a href="https://discord.gg/fWcUWqCy " target="_blank">Launch Discord</a></p>
+      <p>Press Ctrl+Q and it will redirect you to Google Classroom.<br>Bypass mode is always on—it enables the leave site popup.</p>
     </div>
-    <div class="header" style="margin-top: 20px;">Quick Cloaking</div>
-    <div class="btn-container">
-      <button class="btn" onclick="document.title='Google Docs'">Google Docs</button>
-      <button class="btn" onclick="document.title='Classroom'">Classroom</button>
-      <button class="btn" onclick="document.title='Home'">Home</button>
-      <button class="btn" onclick="document.title='Creekside PL Time'">Creekside PL Time</button>
-      <button class="btn" onclick="document.title='New Tab'">New Tab</button>
-      <button class="btn" onclick="document.title='Aeries login'">Aeries login</button>
-    </div>
-    <p>
-      Join the Discord for more links, updates, web dev, and more!
-      <a href="https://discord.gg/fWcUWqCy " target="_blank">Launch Discord</a>
-    </p>
-    <p>
-      Press Contro+Q and It will redirect you to your school tab.
-      Bypass mode is always on,it enables the leave site popup.
-    </p>
-    <p>
-      
-    </p>
   </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/particles.js "></script>
-<script src="script.js"></script>
-<script>
-  window.addEventListener('beforeunload', function (e) {
-    e.preventDefault();
-    e.returnValue = 'Changes you made may not be saved.';
-  });
-  function showTab(tabId, btn) {
-    document.querySelectorAll('.tab-content').forEach(tc => {
-      tc.classList.remove('active');
-    });
-    document.querySelectorAll('.tabBtn').forEach(b => {
-      b.classList.remove('active');
-    });
-    document.getElementById(tabId).classList.add('active');
-    btn.classList.add('active');
-  }
-  function checkPassword() {
-    const pw = document.getElementById('passwordInput').value;
-    if (pw === '5084820933') {
-      document.getElementById('authContainer').style.display = 'none';
-      document.getElementById('topbar').style.display = 'flex';
-    } else {
-      alert('Incorrect password.As a clue,Check the source code...If you know how.');
-    }
-  }
-  function clearAuth() {
-    document.getElementById('authContainer').style.display = 'block';
-    document.getElementById('topbar').style.display = 'none';
-    document.getElementById('passwordInput').value = '';
-  }
-  function resetAll() {
-    location.reload();
-  }
-  function launchProxy(type) {
-    const url = document.getElementById('urlInput').value.trim();
-    if (!url) {
-      alert('Add the https:// to the URL,you lazy sloth!');
-      return;
-    }
-    const iframe = document.getElementById('movieFrame');
-    if (type === 'iframe') {
-      iframe.src = url.startsWith('http') ? url : 'https://www.webcrawler.com/?q=' + encodeURIComponent(url);
-    } else if (type === 'helios') {
-      iframe.src = " https://helios-browser.ct.ws/?i=1";
-    } else if (type === 'blob') {
-      iframe.src = `blobproxy.html?url=${encodeURIComponent(url)}`;
-    }
-  }
-  function launchDataCloak() {
-    alert('Data Cloak feature coming soon!');
-  }
-  function launchKahoot() {
-    alert('Go to  https://tinyurl.com/szvylauncher  Credits to Szvy.win for this part,follow her on github and discord! =-D If it does not work,try it in the browser.');
-  }
-  function loadMovieSite(url) {
-    document.getElementById('movieFrameMovies').src = url.trim();
-  }
-  function toggleFullscreen(elementId) {
-    const el = document.getElementById(elementId);
-    if (!document.fullscreenElement) {
-      el.requestFullscreen().catch(err => {
-        alert(`Error attempting to enable full-screen: ${err.message}`);
-      });
-    } else {
-      document.exitFullscreen();
-    }
-  }
-  tsParticles.load("tsparticles", {
-    fpsLimit: 60,
-    interactivity: {
-      detectsOn: "canvas",
-      events: {
-        onHover: { enable: true, mode: "repulse" },
-        onClick: { enable: true, mode: "push" },
-        resize: true
-      },
-      modes: {
-        repulse: { distance: 100, duration: 0.4 },
-        push: { quantity: 4 }
+
+  <script>
+    let particlesEnabled = true;
+
+    function checkPassword() {
+      const pw = document.getElementById('passwordInput').value;
+      if (pw === '5084820933') {
+        const username = document.getElementById('usernameInput').value;
+        localStorage.setItem("username", username);
+        document.getElementById('authContainer').style.display = 'none';
+        document.getElementById('topbar').style.display = 'flex';
+        alert("Data Saved! Successfully Logged in!!");
+      } else {
+        alert('Incorrect password. As a clue, check the source code... If you know how.');
       }
-    },
-    particles: {
-      color: { value: "#ff1a1a" },
-      links: {
-        color: "#ff0000",
-        distance: 120,
-        enable: true,
-        opacity: 0.5,
-        width: 2
+    }
+
+    function clearAuth() {
+      localStorage.removeItem("username");
+      document.getElementById('authContainer').style.display = 'block';
+      document.getElementById('topbar').style.display = 'none';
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('usernameInput').value = '';
+    }
+
+    function resetAll() {
+      location.reload();
+    }
+
+    function launchProxy(type) {
+      const url = document.getElementById('urlInput').value.trim();
+      if (!url) {
+        alert('Add the https:// to the URL, you lazy sloth!');
+        return;
+      }
+      const iframe = document.getElementById('movieFrame');
+      if (type === 'iframe') {
+        iframe.src = url.startsWith('http') ? url : 'https://www.webcrawler.com/?q=' + encodeURIComponent(url);
+      } else if (type === 'helios') {
+        iframe.src = " https://helios-browser.ct.ws/?i=1";
+      }
+    }
+
+    function launchDataCloak() {
+      alert('Data Cloak feature coming soon!');
+    }
+
+    function launchKahoot() {
+      alert('Go to  https://tinyurl.com/szvylauncher  Credits to Szvy.win for this part, follow her on github and discord! =-D If it does not work, try it in the browser.');
+    }
+
+    function loadMovieSite(url) {
+      document.getElementById('movieFrameMovies').src = url.trim();
+    }
+
+    function toggleFullscreen(elementId) {
+      const el = document.getElementById(elementId);
+      if (!document.fullscreenElement) {
+        el.requestFullscreen().catch(err => {
+          alert(`Error attempting to enable full-screen: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    function showTab(tabId, btn) {
+      document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+      document.querySelectorAll('.tabBtn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function toggleParticles() {
+      particlesEnabled = !particlesEnabled;
+      if (!particlesEnabled) {
+        tsParticles.stop();
+      } else {
+        tsParticles.start("tsparticles", options);
+      }
+    }
+
+    function setTheme(theme) {
+      switch (theme) {
+        case 'bubblegum':
+          document.body.style.background = "linear-gradient(to right, pink, hotpink)";
+          break;
+        case 'darknight':
+          document.body.style.background = "#000";
+          break;
+        case 'ocean':
+          document.body.style.background = "linear-gradient(to right, darkblue, navy)";
+          break;
+        case 'blueskies':
+          document.body.style.background = "linear-gradient(to right, skyblue, lightblue)";
+          break;
+        default:
+          document.body.style.background = "linear-gradient(135deg, #1a1a1a 0%, #120000 100%)";
+      }
+    }
+
+    const options = {
+      fpsLimit: 60,
+      interactivity: {
+        detectsOn: "canvas",
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { quantity: 4 }
+        }
       },
-      collisions: { enable: true },
-      move: {
-        direction: "none",
-        enable: true,
-        outMode: "bounce",
-        random: false,
-        speed: 2,
-        straight: false
+      particles: {
+        color: { value: "#ff1a1a" },
+        links: {
+          color: "#ff0000",
+          distance: 120,
+          enable: true,
+          opacity: 0.5,
+          width: 2
+        },
+        collisions: { enable: true },
+        move: {
+          direction: "none",
+          enable: true,
+          outMode: "bounce",
+          random: false,
+          speed: 2,
+          straight: false
+        },
+        number: { density: { enable: true, area: 800 }, value: 50 },
+        opacity: { value: 0.6 },
+        shape: { type: "circle" },
+        size: { random: true, value: 5 }
       },
-      number: { density: { enable: true, area: 800 }, value: 50 },
-      opacity: { value: 0.6 },
-      shape: { type: "circle" },
-      size: { random: true, value: 5 }
-    },
-    detectRetina: true
-  });
-</script>
+      detectRetina: true
+    };
+
+    tsParticles.load("tsparticles", options);
+
+    // Ctrl+Q Redirect
+    document.addEventListener('keydown', function(event) {
+      if (event.ctrlKey && event.key === 'q') {
+        window.open('https://classroom.google.com ', '_blank');
+      }
+    });
+
+    // Leave Site Popup
+    window.addEventListener('beforeunload', function(e) {
+      e.preventDefault();
+      e.returnValue = 'Changes you made may not be saved.';
+    });
+  </script>
 </body>
 </html>
