@@ -4,224 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Darrkon</title>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles @3.1.0/tsparticles.bundle.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
+
+  <!-- LOADER STYLES -->
   <style>
-    /* === No way this site beats Opera GX Haha... === */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Roboto Mono", monospace;
-    }
-    #tsparticles {
+    .loading-screen {
       position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
       top: 0;
       left: 0;
-    }
-    body {
+      width: 100vw;
+      height: 100vh;
       background: linear-gradient(135deg, #1a1a1a 0%, #120000 100%);
       color: #e0e0e0;
-      height: 100vh;
-      overflow-x: hidden;
-      user-select: none;
-    }
-    .topbar {
-      width: 100%;
       display: flex;
-      justify-content: center;
-      background: linear-gradient(90deg, #330000, #660000);
-      box-shadow: 0 0 20px #ff0000cc;
-      padding: 12px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      flex-wrap: wrap;
-      gap: 6px;
-      border-bottom: 2px solid #ff1a1a;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-    .topbar button {
-      background: transparent;
-      border: 2px solid #ff1a1a;
-      color: #ff4d4d;
-      font-size: 16px;
-      padding: 10px 24px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ff1a1a44 inset;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .topbar button:hover,
-    .topbar button.active {
-      background: #ff1a1a;
-      color: #1a0000;
-      box-shadow: 0 0 20px #ff4d4d;
-      border-color: #ff4d4d;
-      transform: scale(1.05);
-    }
-    .tab-content {
-      display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px 20px;
-      transition: opacity 0.3s ease;
-    }
-    .tab-content.active {
-      display: flex;
-      opacity: 1;
-    }
-    .container, .auth-container {
-      background: #2a0000;
-      padding: 36px 30px;
-      border-radius: 16px;
-      box-shadow: 0 0 30px #ff1a1acc;
+      z-index: 9999;
       text-align: center;
-      width: 90%;
-      max-width: 600px;
-      border: 2px solid #ff4d4d;
-      user-select: text;
-    }
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 14px 16px;
-      margin: 24px 0;             
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      background: #3f0000;
-      color: #ffcccc;
-      box-shadow: inset 0 0 8px #ff1a1a99;
-      transition: background 0.3s ease;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-    input[type="text"]::placeholder,
-    input[type="password"]::placeholder {
-      color: #ff6666aa;
-      font-style: italic;
-    }
-    input[type="text"]:focus,
-    input[type="password"]:focus {
-      outline: none;
-      background: #510000;
-      box-shadow: 0 0 12px #ff1a1aee;
-      color: #fff;
-    }
-    .btn-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
-    }
-    .btn {
-      background: transparent;
-      border: 2px solid #ff1a1a;
-      color: #ff4d4d;
-      padding: 12px 28px;
-      border-radius: 14px;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 15px;
-      text-transform: uppercase;
-      box-shadow: 0 0 15px #ff1a1a44 inset;
-      transition: all 0.3s ease;
-      user-select: none;
-    }
-    .btn:hover {
-      background: #ff1a1a;
-      color: #330000;
-      box-shadow: 0 0 25px #ff4d4d;
-      transform: scale(1.08);
-    }
-    .header {
-      font-size: 28px;
-      margin-bottom: 14px;
-      color: #ff3333;
-      text-shadow: 0 0 8px #ff0000;
-      font-weight: 900;
-      letter-spacing: 0.05em;
-    }
-    .subheader {
-      font-size: 16px;
-      color: #ff9999cc;
-      margin-bottom: 24px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      user-select: text;
-    }
-    iframe {
-      width: 100%;
-      height: 60vh;
-      margin-top: 24px;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #ff1a1abb;
-      background-color: #1a0000;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      width: 100%;
-      max-width: 600px;
-      margin: 10px auto 0 auto;
-      text-align: left;
-      user-select: text;
-    }
-    ul li a {
-      color: #ff4d4d;
-      text-decoration: none;
-      display: block;
-      padding: 8px 0;
-      font-weight: 600;
-      transition: color 0.3s ease;
-      border-bottom: 1px solid #330000;
-    }
-    ul li a:hover {
-      color: #ff9999;
-      text-decoration: underline;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #550000;
-      margin: 24px 0;
-      width: 100%;
-      max-width: 600px;
-    }
-    @media (max-width: 600px) {
-      .btn-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      iframe {
-        height: 60vh;
-      }
-      .topbar {
-        justify-content: center;
-      }
+      transition: opacity 1s ease;
     }
 
-    .favicon {
-      width: 16px;
-      height: 16px;
-      vertical-align: middle;
-      margin-right: 6px;
+    .loading-bar {
+      width: 80%;
+      height: 6px;
+      background: #003f7f; /* DARKER BLUE */
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .loading-progress {
+      width: 0%;
+      height: 100%;
+      background: #007fff;
+      transition: width 0.2s ease;
+    }
+
+    body.loaded .loading-screen {
+      opacity: 0;
+      pointer-events: none;
+      display: none !important;
     }
   </style>
 </head>
-<body>
-  <div id="tsparticles"></div>
 
-  <!-- Auth -->
+<!-- LOADER AT THE VERY TOP -->
+<div class="loading-screen" id="loadingScreen">
+  <div id="loadingQuote">Loading...</div>
+  <div class="loading-bar">
+    <div id="loadingProgress" class="loading-progress"></div>
+  </div>
+</div>
+
+<body>
+  <!-- PARTICLES BACKGROUND -->
+  <div id="tsparticles"></div>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles @3.1.0/tsparticles.bundle.min.js"></script>
+
+  <!-- AUTH -->
   <div class="auth-container" id="authContainer">
     <div class="header">Password Protected</div>
     <input type="text" id="usernameInput" placeholder="Enter Username" />
@@ -229,7 +69,7 @@
     <button class="btn" onclick="checkPassword()">Login</button>
   </div>
 
-  <!-- Top Tab Bar -->
+  <!-- TAB BAR -->
   <div class="topbar" id="topbar" style="display: none;">
     <button class="tabBtn active" onclick="showTab('homeTab', this)">Home</button>
     <button class="tabBtn" onclick="showTab('gamesTab', this)">Links</button>
@@ -237,13 +77,14 @@
     <button class="tabBtn" onclick="showTab('cloakTab', this)">Cloak</button>
     <button class="tabBtn" onclick="showTab('toolsTab', this)">Tools/Coding</button>
     <button class="tabBtn" onclick="showTab('moviesTab', this)">Apps/Stuff</button>
+    <button class="tabBtn" onclick="showTab('educationTab', this)">Education</button>
     <button class="tabBtn" onclick="showTab('settingsTab', this)">Settings</button>
     <button class="tabBtn" onclick="showTab('gamesLaunchTab', this)">More Games</button>
     <button class="tabBtn" onclick="showTab('infocreditsTab', this)">Info</button>
     <button class="tabBtn" onclick="showTab('musicLaunchTab', this)">Music</button>
   </div>
 
-  <!-- Home Tab -->
+  <!-- HOME TAB -->
   <div class="tab-content active" id="homeTab">
     <div class="container">
       <div class="header">Darrkon</div>
@@ -251,22 +92,41 @@
     </div>
   </div>
 
-  <!-- Cloak Tab -->
+  <!-- CLOAK TAB -->
   <div class="tab-content" id="cloakTab">
     <div class="container">
       <div class="header">Cloaking</div>
-      <button class="btn" onclick="window.open(' https://github.com/Exploit-Master122/Darrkonv6/blob/main/darrkon.html ', '_blank')">Download File...</button>
+      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/Darrkonv6/blob/main/darrkon.html ', '_blank')">Download File...</button>
       <button class="btn" onclick="window.open('https://thelearningcentral.global.ssl.fastly.net/math.html?u=/szvy/szvy/hvtrs8%2F-dwcidwcigm.aoo', '_blank')">Szvy Duckduckgo!...</button>
-      <button class="btn" onclick="window.open(' https://vercel.com/exploit-master12s-projects/darrkon-os', '_blank')">Vercel Deployment</button>
+      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/Darrkonv6/blob/main/readme4.md ', '_blank')">Github Pages Deployment</button>
     </div>
   </div>
 
-  <!-- Links Tab -->
+  <!-- BROWSER TAB -->
+  <div class="tab-content" id="browserTab">
+    <div class="container">
+      <div class="header">Unblocked Browser!</div>
+      <input type="text" id="urlInput" placeholder="Enter URL or Search Qwant/WebCrawl3r" />
+      <div class="btn-container">
+        <button class="btn" onclick="launchProxy('iframe')">IframeVault</button>
+        <button class="btn" onclick="launchProxy('rammerhead')">Selectorv2</button>
+        <button class="btn" onclick="launchProxy('ultraviolet')">Ultraviolet</button>
+        <button class="btn" onclick="launchDataCloak()">Data Cloak</button>
+        <button class="btn" onclick="launchKahoot()">Szvy Loader</button>
+        <button class="btn" onclick="toggleFullscreen('movieFrame')">Fullscreen</button>
+      </div>
+      <div id="movieFrameContainer" style="margin-top: 20px; width: 100%;">
+        <iframe id="movieFrame" style="width: 100%; height: 60vh; border: none;"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAMES/LINKS TAB -->
   <div class="tab-content" id="gamesTab">
     <div class="container" style="max-height: 80vh; overflow-y: auto;">
       <div class="header">Games/Proxy links!</div>
       <ul>
-        <li><a href=" https://us4-z.global.ssl.fastly.net/ " target="_blank">US4 Proxy Z</a></li>
+        <li><a href="https://us4-z.global.ssl.fastly.net/ " target="_blank">US4 Proxy Z</a></li>
         <li><a href="https://us4-v.global.ssl.fastly.net/ " target="_blank">US4 Proxy V</a></li>
         <li><a href="https://cesium.insviro.com/ " target="_blank">Cesium Browser</a></li>
         <li><a href="https://writingessayepicguide.lol/en_US/ " target="_blank">Nebula Browser</a></li>
@@ -285,54 +145,25 @@
         <li><a href="https://hexcein-moonsters.github.io/polytrack/ " target="_blank">PolyTrack Unblocked...</a></li>
         <li><a href="https://www.hoodamath.com/games/run.html#gsc.tab=0" target="_blank">Unblocked Games!</a></li>
         <li><a href=" https://github.com/Exploit-Master122/Vex1 " target="_blank">Vex1 Games!!(Working!!)</a></li>
-        <li><a href="https://exploit-master122.github.io/Nyx-/active/ " target="_blank">Nyx Proxy.(A really good proxy source code by ChompyPotato,Deployed by me!</a></li>
+        <li><a href="https://exploit-master122.github.io/Nyx-/active/ " target="_blank">Nyx Proxy (by ChompyPotato)</a></li>
       </ul>
     </div>
   </div>
 
-  <!-- Tools Tab -->
+  <!-- TOOLS TAB -->
   <div class="tab-content" id="toolsTab">
     <div class="container">
       <div class="header">Proxy Tools</div>
-      <button class="btn" onclick="window.open('https://repos.ecosyste.ms/hosts/GitHub/owners/Exploit-Master122 ', '_blank')">My project/Coding</button>
-      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/Ext-remover ', '_blank')">ExtRemover2</button>
-      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/RandomUnblockers/ ', '_blank')">Exploit Library</button>
-      <button class="btn" onclick="window.open('https://exploit-master122.github.io/Helios-AI/ ', '_blank')">Qwen.AI</button>
+      <button class="btn" onclick="window.open('https://repos.ecosyste.ms/hosts/GitHub/owners/Exploit-Master122  ', '_blank')">My project/Coding</button>
+      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/Ext-remover  ', '_blank')">ExtRemover2</button>
+      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/RandomUnblockers/  ', '_blank')">Exploit Library</button>
+      <button class="btn" onclick="window.open('https://exploit-master122.github.io/Helios-AI/  ', '_blank')">Qwen.AI</button>
       <button class="btn" onclick="window.open('devtools://devtools/bundled/inspector.html')">DevTools Chrome</button>
       <button class="btn" onclick="window.open('https://docs.titaniumnetwork.org/ ')">Titanium Network</button>
     </div>
   </div>
 
-  <!-- Browser Tab -->
-  <div class="tab-content" id="browserTab">
-    <div class="container">
-      <div class="header">Unblocked Browser!</div>
-      <input type="text" id="urlInput" placeholder="Enter URL or Search Qwant/WebCrawl3r" />
-      <div class="btn-container">
-        <button class="btn" onclick="launchProxy('iframe')">Ultraviolet (Best)</button>
-        <button class="btn" onclick="launchProxy('helios')">Helios</button>
-        <button class="btn" onclick="launchDataCloak()">Data Cloak</button>
-        <button class="btn" onclick="launchKahoot()">Szvy Loader</button>
-        <button class="btn" onclick="toggleFullscreen('movieFrame')">Fullscreen</button>
-      </div>
-      <div id="movieFrameContainer" style="margin-top: 20px; width: 100%;">
-        <iframe id="movieFrame" style="width: 100%; height: 60vh; border: none;"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Music Tab -->
-  <div class="tab-content" id="musicLaunchTab">
-    <div class="container">
-      <div class="header">Listen to music unblocked 🎶</div>
-      <div class="btn-container">
-        <button class="btn" onclick="window.open('https://exploit-master122.github.io/AcoraV2/ ', '_blank')">Acora v2</button>
-        <button class="btn" onclick="alert('Coming soon')">FreeFy Music</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Movies Tab -->
+  <!-- MOVIES TAB -->
   <div class="tab-content" id="moviesTab">
     <div class="container">
       <div class="header">We have way too many apps...</div>
@@ -347,7 +178,7 @@
         <button class="btn" onclick="loadMovieSite('https://blooket.broomleigh.org/mastery?auth=8w5ungp')">Roblox Browser</button>
         <button class="btn" onclick="loadMovieSite(' https://www.freemathhelp.com/ ')">MathHelp Unblocked</button>
         <button class="btn" onclick="loadMovieSite('https://caveduck.io/ ')">Character.AI</button>
-        <button class="btn" onclick="loadMovieSite('https://chat.qwen.ai ')">ChatGPT</button>
+        <button class="btn" onclick="loadMovieSite('https://chat.qwen.ai/ ')">ChatGPT</button>
         <button class="btn" onclick="loadMovieSite('https://ext-remover.net/ ')">Ext-Remover</button>
         <button class="btn" onclick="loadMovieSite('https://edpuzzle.com.de/math.html?u=/szvy/szvy/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F')">Geforce Now</button>
         <button class="btn" onclick="loadMovieSite(' https://stim.io/ ')">Stim.io</button>
@@ -367,23 +198,40 @@
     </div>
   </div>
 
-  <!-- Games Tab -->
+  <!-- EDUCATION TAB -->
+  <div class="tab-content" id="educationTab">
+    <div class="container">
+      <div class="header">Education Sites</div>
+      <div class="btn-container">
+        <a href="https://edgedcircles.com/uv/service/hvtrs8%2F-dg.sumrc.aoo%2F " target="_blank">Quora via Ultraviolet</a><br>
+        <a href="https://physicsforidiots.com/ " target="_blank">Physics For Idiots</a><br>
+        <a href="https://www.mathway.com/Algebra " target="_blank">Mathway (Algebra)</a><br>
+        <a href="https://www.mathnook.com/ " target="_blank">MathNook</a><br>
+        <a href="https://archive.org/ " target="_blank">Internet Archive</a><br>
+        <a href="https://en.readanybook.com/ " target="_blank">ReadAnyBook.com</a><br>
+        <a href="https://en.onread.com/ " target="_blank">OnRead.com</a><br>
+      </div>
+      <p>Educational websites that are blocked at my school,but are very good.Some sites like Quora are cloaked through proxies. If the site is blocked, try it in the browser tab.</p>
+    </div>
+  </div>
+
+  <!-- MORE GAMES TAB -->
   <div class="tab-content" id="gamesLaunchTab">
     <div class="container">
       <div class="header">Launch the Games!!</div>
       <div class="btn-container">
-        <a href="https://unblocked-games.s3.amazonaws.com/index.html ">Nova Online Play</a><br>
-        <a href="https://exploit-master122.github.io/fractions4kids/ ">SZ Games</a><br>
-        <a href="https://exploit-master122.github.io/Time-Shooter-3/ ">Time Shooter 3</a><br>
-        <a href="https://www.crazygames.nl/ ">Crazygames (Dutch)</a><br>
-        <a href="https://exploit-master122.github.io/vex7/ ">Stickman Vex 7</a><br>
-        <a href="https://dinguschan-owo.github.io/dingusproxy/ ">DingusProxy v3</a><br>
+        <a href="https://unblocked-games.s3.amazonaws.com/index.html  ">Nova Online Play</a><br>
+        <a href="https://exploit-master122.github.io/fractions4kids/  ">SZ Games</a><br>
+        <a href="https://exploit-master122.github.io/Time-Shooter-3/  ">Time Shooter 3</a><br>
+        <a href="https://www.crazygames.nl/  ">Crazygames (Dutch)</a><br>
+        <a href="https://exploit-master122.github.io/vex7/  ">Stickman Vex 7</a><br>
+        <a href="https://dinguschan-owo.github.io/dingusproxy/  ">DingusProxy v3</a><br>
       </div>
-      <p>If the links are blocked, put them in the browser. For some reason the CrazyGames website is in Dutch. It should work though—especially Nova Games. Fullscreen will be implemented soon, don't worry. The Now.gg Roblox may not work; try a few times. The GitHub.io ones are all unblocked! Try the other apps, they should work too.</p>
+      <p>If the links are blocked, put them in the browser. For some reason the CrazyGames website is in Dutch. It should work though—especially Nova Games. Fullscreen will be implemented soon, don't worry. The Now.gg Roblox may not work; try a few times. The GitHub.io ones are all unblocked! Try other apps—they should work too.</p>
     </div>
   </div>
 
-  <!-- Info Tab -->
+  <!-- INFO TAB -->
   <div class="tab-content" id="infocreditsTab">
     <div class="container">
       <div class="header">Info/Contact</div>
@@ -393,7 +241,18 @@
     </div>
   </div>
 
-  <!-- Settings Tab -->
+  <!-- MUSIC TAB -->
+  <div class="tab-content" id="musicLaunchTab">
+    <div class="container">
+      <div class="header">Listen to music unblocked 🎶</div>
+      <div class="btn-container">
+        <button class="btn" onclick="window.open('https://exploit-master122.github.io/AcoraV2/ ', '_blank')">Acora v2</button>
+        <button class="btn" onclick="alert('Go to https://shorturl.at/r37Qz')">FreeFy Music</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS TAB -->
   <div class="tab-content" id="settingsTab">
     <div class="container">
       <div class="header">Settings</div>
@@ -406,13 +265,12 @@
 
       <div class="header" style="margin-top: 20px;">Quick Cloaking</div>
       <div class="btn-container">
-        <button class="btn" onclick="document.title='Google Docs'"><img class="favicon" src="https://www.google.com/favicon.ico "/>Google Docs</button>
-        <button class="btn" onclick="document.title='Classroom'"><img class="favicon" src="https://ssl.gstatic.com/classroom/favicon.png "/>Classroom</button>
-        <button class="btn" onclick="document.title='Home'"><img class="favicon" src="https://schoolwork.broomleigh.org/assets/img/docs.webp "/>Home</button>
-        <button class="btn" onclick="document.title='Creekside PL Time'">Creekside PL Time</button>
-        <button class="btn" onclick="document.title='New Tab'"><img class="favicon" src="https://raw.githubusercontent.com/chromium/chromium/main/chrome/app/theme/default_200_percent/common/favicon_ntp.png "/>New Tab</button>
-        <button class="btn" onclick="document.title='Aeries login'"><img class="favicon" src="https://castrovalleyusd.asp.aeries.net/student/images/Combomark_Transparent.svg "/>Aeries Login</button>
-        <button class="btn" onclick="document.title='CPM Math'"><img class="favicon" src="https://sso.cpm.org/images/CPMCompact.svg "/>CPM Math</button>
+        <button class="btn" onclick="setCloakTitle('Google Docs')"><img class="favicon" src="https://www.google.com/favicon.ico "/>Google Docs</button>
+        <button class="btn" onclick="setCloakTitle('Classroom')"><img class="favicon" src="https://ssl.gstatic.com/classroom/favicon.png "/>Classroom</button>
+        <button class="btn" onclick="setCloakTitle('Home')"><img class="favicon" src="https://schoolwork.broomleigh.org/assets/img/docs.webp "/>Home</button>
+        <button class="btn" onclick="setCloakTitle('New Tab')"><img class="favicon" src="https://raw.githubusercontent.com/chromium/chromium/main/chrome/app/theme/default_200_percent/common/favicon_ntp.png "/>New Tab</button>
+        <button class="btn" onclick="setCloakTitle('Aeries Login')"><img class="favicon" src="https://castrovalleyusd.asp.aeries.net/student/images/Combomark_Transparent.svg "/>Aeries Login</button>
+        <button class="btn" onclick="setCloakTitle('CPM Math')"><img class="favicon" src="https://sso.cpm.org/images/CPMCompact.svg "/>CPM Math</button>
       </div>
 
       <div class="header" style="margin-top: 20px;">Customize Look</div>
@@ -420,31 +278,491 @@
         <button class="btn" onclick="toggleParticles()">Toggle Particles</button>
         <button class="btn" onclick="setTheme('bubblegum')">Bubblegum (Pink)</button>
         <button class="btn" onclick="setTheme('darknight')">Dark Night (Black)</button>
-        <button class="btn" onclick="setTheme('ocean')">Ocean (Blue)</button>
+        <button class="btn" onclick="setTheme('ocean')">Ocean </button>
         <button class="btn" onclick="setTheme('blueskies')">Blue Skies (Sky)</button>
         <button class="btn" onclick="setTheme('default')">Default Theme</button>
       </div>
 
-      <p>Join the Discord for more links, updates, web dev, and more!<br><a href="https://discord.gg/fWcUWqCy " target="_blank">Launch Discord</a></p>
-      <p>Press Ctrl+Q and it will redirect you to Google Classroom.<br>Bypass mode is always on—it enables the leave site popup. <br> Also,Press Control+n and Alt+Tab to switch windows.</p>
+      <div class="header" style="margin-top: 20px;">Proxy Selection</div>
+      <div class="proxy-selector">
+        <label class="proxy-option">
+          <input type="radio" name="proxySelector" value="framevault" class="proxy-radio" checked>
+          <div class="proxy-info">
+            <div class="proxy-label">Darrkon FrameVault</div>
+            <div class="proxy-desc">Advanced Iframe loading.Good for shady websites like florr.io,more encrypted.(Simple use)</div>
+          </div>
+        </label>
+        <label class="proxy-option">
+          <input type="radio" name="proxySelector" value="rammerhead" class="proxy-radio">
+          <div class="proxy-info">
+            <div class="proxy-label">Rammerhead</div>
+            <div class="proxy-desc">Uses Rammerhead proxy engine,by Simon Cheng.Good for websites like GeForce Now or Discord.(Good browser)</div>
+          </div>
+        </label>
+        <label class="proxy-option">
+          <input type="radio" name="proxySelector" value="ultraviolet" class="proxy-radio">
+          <div class="proxy-info">
+            <div class="proxy-label">Ultraviolet</div>
+            <div class="proxy-desc">Uses JS Serviceworkers.Good for websites like poki.com or chatgpt.Made by Jaydon Lui and Titanium Network.(Very Good,but Temperamental) </div>
+          </div>
+        </label>
+        <label class="proxy-option">
+          <input type="radio" name="proxySelector" value="helios" class="proxy-radio">
+          <div class="proxy-info">
+            <div class="proxy-label">Helios Browser</div>
+            <div class="proxy-desc">Powered by DingusChan from Github,CORS Proxy Method.(A rival to Rammerhead)</div>
+          </div>
+        </label>
+        <label class="proxy-option">
+          <input type="radio" name="proxySelector" value="scramjet" class="proxy-radio" disabled>
+          <div class="proxy-info">
+            <div class="proxy-label">ScramJet</div>
+            <div class="proxy-desc">Currently in development...</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="header" style="margin-top: 20px;">Search Engine</div>
+      <div class="btn-container">
+        <button class="btn" onclick="setSearchEngine('inetol')">SearXNG (German) Web</button>
+        <button class="btn" onclick="setSearchEngine('ghoogle')">Shodan Search</button>
+        <button class="btn" onclick="setSearchEngine('swisscows')">SwissCows</button>
+        <button class="btn" onclick="setSearchEngine('edgeduck')">Duckduckgo</button>
+      </div>
+
+      <div class="header" style="margin-top: 20px;">Custom Background</div>
+      <input type="text" id="customBgUrl" placeholder="Enter an Image or GIF URL." />
+      <button class="btn" onclick="setCustomBackground()">Apply Custom Background</button>
+
+      <p style="margin-top: 20px;">Join the Discord for more links, updates, web dev, and more!<br><a href="https://discord.gg/fWcUWqCy " target="_blank">Launch Discord</a></p>
+      <p>Press Ctrl+Q and it will redirect you to Google Classroom.<br>Bypass mode is always on—it enables the leave site popup. <br>To toggle Panic Button, read https://shorturl.at/AsmCf <br> To search,set the proxy to iframe. </p>
     </div>
   </div>
 
-  <script>
-    let particlesEnabled = true;
-    let panicUrl = 'https://classroom.google.com ';
-    let backtickRedirectUrl = 'https://classroom.google.com '; // Change this to your desired URL
+  <!-- MAIN STYLES -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Roboto Mono", monospace;
+    }
 
-    function checkPassword() {
-      const pw = document.getElementById('passwordInput').value;
-      if (pw === '5084820933') {
-        const username = document.getElementById('usernameInput').value;
-        localStorage.setItem("username", username);
-        document.getElementById('authContainer').style.display = 'none';
-        document.getElementById('topbar').style.display = 'flex';
-        alert("Data Saved! Successfully Logged in!!");
+    #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a1a1a 0%, #120000 100%);
+      color: #e0e0e0;
+      height: 100vh;
+      overflow-x: hidden;
+      user-select: none;
+    }
+
+    .topbar {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(90deg, #330000, #660000);
+      box-shadow: 0 0 20px #ff0000cc;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      flex-wrap: wrap;
+      gap: 6px;
+      border-bottom: 2px solid #ff1a1a;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .topbar button {
+      background: transparent;
+      border: 2px solid #ff1a1a;
+      color: #ff4d4d;
+      font-size: 16px;
+      padding: 10px 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ff1a1a44 inset;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .topbar button:hover,
+    .topbar button.active {
+      background: #ff1a1a;
+      color: #1a0000;
+      box-shadow: 0 0 20px #ff4d4d;
+      border-color: #ff4d4d;
+      transform: scale(1.05);
+    }
+
+    .tab-content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 20px;
+      transition: opacity 0.3s ease;
+    }
+
+    .tab-content.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .container, .auth-container {
+      background: #2a0000;
+      padding: 36px 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px #ff1a1acc;
+      text-align: center;
+      width: 90%;
+      max-width: 600px;
+      border: 2px solid #ff4d4d;
+      user-select: text;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 14px 16px;
+      margin: 24px 0;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      background: #3f0000;
+      color: #ffcccc;
+      box-shadow: inset 0 0 8px #ff1a1a99;
+      transition: background 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      background: #510000;
+      box-shadow: 0 0 12px #ff1a1aee;
+      color: #fff;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      background: transparent;
+      border: 2px solid #ff1a1a;
+      color: #ff4d4d;
+      padding: 12px 28px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 15px;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px #ff1a1a44 inset;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .btn:hover {
+      background: #ff1a1a;
+      color: #330000;
+      box-shadow: 0 0 25px #ff4d4d;
+      transform: scale(1.08);
+    }
+
+    .header {
+      font-size: 28px;
+      margin-bottom: 14px;
+      color: #ff3333;
+      text-shadow: 0 0 8px #ff0000;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+    }
+
+    .subheader {
+      font-size: 16px;
+      color: #ff9999cc;
+      margin-bottom: 24px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    iframe {
+      width: 100%;
+      height: 60vh;
+      margin-top: 24px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff1a1abb;
+      background-color: #1a0000;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      width: 100%;
+      max-width: 600px;
+      margin: 10px auto 0 auto;
+      text-align: left;
+    }
+
+    ul li a {
+      color: #ff4d4d;
+      text-decoration: none;
+      display: block;
+      padding: 8px 0;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      border-bottom: 1px solid #330000;
+    }
+
+    ul li a:hover {
+      color: #ff9999;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .btn-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      iframe {
+        height: 60vh;
+      }
+      .topbar {
+        justify-content: center;
+      }
+    }
+
+    .favicon {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    .proxy-selector {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .proxy-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: #3f0000;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .proxy-option:hover {
+      background: #510000;
+    }
+
+    .proxy-label {
+      font-size: 15px;
+      color: #ffcccc;
+    }
+
+    .proxy-desc {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .proxy-radio {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ff4d4d;
+      border-radius: 50%;
+      background-color: transparent;
+      position: relative;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+
+    .proxy-radio:checked::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: #ff4d4d;
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+    }
+  </style>
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
+
+  <!-- SCRIPTS -->
+  <script>
+    const quotes = [
+      "Watch Brooklyn Nine Nine, It's a really good comedy...",
+      "Long live Szvy's account",
+      "I'm playing War Thunder",
+      "Velara Proxy sucks",
+      "Darrkon Network Rules!",
+      "The Pendragon Series by D.J. MacHale is GOOD",
+      "I am a minor!",
+      "Bully Stephen, he whacked me with his tennis racket!!",
+      "You're welcome for the money.You owe me.(You know who you are...) =-0",
+      "I'm tracking your IP address",
+      "I'm in Titanium Network!",
+      "Red Browser by LupineVault is really good",
+      "Microsoft Edge Sucks",
+      "Are you using Safari Browser?",
+      "Stop Doomscrolling Tiktok on my website!",
+      "I have partnered with Doge Unblocker",
+      "Press Control+h",
+      "Imagine Rickrolling in the Big 25's...",
+      "The roblox grind is crazy...",
+      "Swisscows search engine...But no google somehow.",
+      "Let's go,Jaydon Liu!! Thank you!!",
+      "If you search up freaky stuff on here,you will get BANNED from the discord.",   
+      "All of the people who helped me on this,you know who you are,THANK YOU!!",
+      "Jobi,a partner from Universal Unblocker made a version called FREAKY-UB. WHY?!",
+      "I like minors...",
+      "Too many sayings...",
+      "This took a lot of time to make...",
+      "Why are you on this site? Go and touch grass.",
+      "TOUCH GRASS!!"
+      "Deadshot.io is terrible.Rooftop snipers is better (Haha...)"
+    
+      
+      
+    
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const loadingQuote = document.getElementById("loadingQuote");
+      const loadingProgress = document.getElementById("loadingProgress");
+
+      let quoteIndex = Math.floor(Math.random() * quotes.length);
+      loadingQuote.textContent = quotes[quoteIndex];
+
+      const duration = Math.floor(Math.random() * 2000) + 4000;
+      let progress = 0;
+      const interval = 50;
+      const totalSteps = duration / interval;
+
+      function updateProgress() {
+        if (progress >= 100) return;
+        progress += 100 / totalSteps;
+        loadingProgress.style.width = `${Math.min(progress, 100)}%`;
+        setTimeout(updateProgress, interval);
+      }
+
+      updateProgress();
+
+      setTimeout(() => {
+        document.body.classList.add("loaded");
+      }, duration);
+
+      window.addEventListener('load', () => {
+        const savedProxy = localStorage.getItem("selectedProxy") || "framevault";
+        try {
+          document.querySelector(`input[value="${savedProxy}"]`).checked = true;
+        } catch (e) {
+          document.querySelector('input[value="framevault"]').checked = true;
+        }
+
+        const cloakedTitle = localStorage.getItem("cloakedTitle");
+        const faviconUrl = localStorage.getItem("cloakedFavicon");
+        if (cloakedTitle && faviconUrl) {
+          document.querySelectorAll('.btn').forEach(btn => {
+            btn.innerHTML = `<img class="favicon" src="${faviconUrl}" />${cloakedTitle}`;
+          });
+        }
+
+        setCustomBackgroundFromStorage();
+      });
+    });
+
+    // SEARCH ENGINES
+    const searchEngines = {
+      inetol: ' https://search.inetol.net/?q=',
+      ghoogler: ' https://shodan.io/search?q=',
+      swisscows: ' https://swisscows.com/en?query=',
+      edgeduck: ' https://edgedcircles.com/uv/service/hvtrs8%2F-svapt%2Cdwcidwcigm.aoo%2F?q='
+    };
+
+    let currentEngine = localStorage.getItem("searchEngine") || "inetol";
+
+    // PROXY LAUNCH
+    function launchProxy(type) {
+      const url = document.getElementById('urlInput').value.trim();
+      const iframe = document.getElementById('movieFrame');
+      const selectedProxy = document.querySelector('input[name="proxySelector"]:checked')?.value || 'framevault';
+
+      const proxyUrls = {
+        framevault: null,
+        rammerhead: " https://browser.rammerhead.org/ ",
+        ultraviolet: "https://edgedcircles.com/ ",
+        helios: "https://helios-browser.vercel.app/ ",
+        scramjet: null
+      };
+
+      if (!url) {
+        alert('Add the https:// to the URL, you lazy sloth!');
+        return;
+      }
+
+      if (url.startsWith('http')) {
+        iframe.src = url;
       } else {
-        alert('Incorrect password. As a clue, check the source code... If you know how.');
+        iframe.src = proxyUrls[selectedProxy] || searchEngines[currentEngine] + encodeURIComponent(url);
+      }
+
+      localStorage.setItem("selectedProxy", selectedProxy);
+    }
+
+    function setSearchEngine(engine) {
+      localStorage.setItem("searchEngine", engine);
+      currentEngine = engine;
+      alert("Search engine set to: " + engine);
+    }
+
+    function setCustomBackground() {
+      const url = document.getElementById('customBgUrl').value.trim();
+      if (url) {
+        document.body.style.backgroundImage = `url('${url}')`;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundPosition = "center";
+        localStorage.setItem("customBgUrl", url);
+      } else {
+        alert("Please enter a valid image URL.");
+      }
+    }
+
+    function setCustomBackgroundFromStorage() {
+      const bg = localStorage.getItem("customBgUrl");
+      if (bg) {
+        document.body.style.backgroundImage = `url('${bg}')`;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundPosition = "center";
       }
     }
 
@@ -457,44 +775,8 @@
     }
 
     function resetAll() {
+      localStorage.clear();
       location.reload();
-    }
-
-    function launchProxy(type) {
-      const url = document.getElementById('urlInput').value.trim();
-      if (!url) {
-        alert('Add the https:// to the URL, you lazy sloth!');
-        return;
-      }
-      const iframe = document.getElementById('movieFrame');
-      if (type === 'iframe') {
-        iframe.src = url.startsWith('http') ? url : 'https://www.webcrawler.com/?q=' + encodeURIComponent(url);
-      } else if (type === 'helios') {
-        iframe.src = " https://helios-browser.ct.ws/?i=1";
-      }
-    }
-
-    function launchDataCloak() {
-      alert('Data Cloak feature coming soon!');
-    }
-
-    function launchKahoot() {
-      alert('Go to  https://tinyurl.com/szvylauncher  Credits to Szvy.win for this part, follow her on github and discord! =-D If it does not work, try it in the browser.');
-    }
-
-    function loadMovieSite(url) {
-      document.getElementById('movieFrameMovies').src = url.trim();
-    }
-
-    function toggleFullscreen(elementId) {
-      const el = document.getElementById(elementId);
-      if (!document.fullscreenElement) {
-        el.requestFullscreen().catch(err => {
-          alert(`Error attempting to enable full-screen: ${err.message}`);
-        });
-      } else {
-        document.exitFullscreen();
-      }
     }
 
     function showTab(tabId, btn) {
@@ -504,34 +786,91 @@
       btn.classList.add('active');
     }
 
-    function toggleParticles() {
-      particlesEnabled = !particlesEnabled;
-      if (!particlesEnabled) {
-        tsParticles.stop();
+    function toggleFullscreen(elementId) {
+      const el = document.getElementById(elementId);
+      if (!document.fullscreenElement) {
+        el.requestFullscreen().catch(err => alert(`Error attempting to enable full-screen: ${err.message}`));
       } else {
-        tsParticles.start("tsparticles", options);
+        document.exitFullscreen();
       }
     }
 
-    function setTheme(theme) {
-      switch (theme) {
-        case 'bubblegum':
-          document.body.style.background = "linear-gradient(to right, pink, hotpink)";
-          break;
-        case 'darknight':
-          document.body.style.background = "#000";
-          break;
-        case 'ocean':
-          document.body.style.background = "linear-gradient(to right, darkblue, navy)";
-          break;
-        case 'blueskies':
-          document.body.style.background = "linear-gradient(to right, skyblue, lightblue)";
-          break;
-        default:
-          document.body.style.background = "linear-gradient(135deg, #1a1a1a 0%, #120000 100%)";
-          break;
+    function checkPassword() {
+      const pw = document.getElementById('passwordInput').value;
+      if (pw === '5084820933') {
+        localStorage.setItem("username", document.getElementById('usernameInput').value);
+        document.getElementById('authContainer').style.display = 'none';
+        document.getElementById('topbar').style.display = 'flex';
+        alert("Data Saved! Successfully Logged in!!");
+      } else {
+        alert('Incorrect password. As a clue, check the source code... If you know how.');
       }
     }
+
+    function wtfisthis() {
+      alert("Bypass mode is always on!");
+    }
+
+    function uwuwegotdaurl() {
+      const panicUrl = localStorage.getItem("panicUrl") || 'https://classroom.google.com  ';
+      window.open(panicUrl, '_blank');
+    }
+
+    function loadMovieSite(url) {
+      document.getElementById('movieFrameMovies').src = url.trim();
+    }
+
+    function launchDataCloak() {
+      alert("Data Cloak feature coming soon!");
+    }
+
+    function launchKahoot() {
+      alert("Go to https://tinyurl.com/szvylauncher  Credits to Szvy.win for this part, follow her on github and discord! =-D If it does not work, try it in the browser.");
+    }
+
+    // THEME SWITCHER
+    function setTheme(theme) {
+      switch (theme) {
+        case 'bubblegum': document.body.style.background = "linear-gradient(to right, pink, hotpink)"; break;
+        case 'darknight': document.body.style.background = "#000"; break;
+        case 'ocean': document.body.style.background = "linear-gradient(to right, darkblue, navy)"; break;
+        case 'blueskies': document.body.style.background = "linear-gradient(to right, skyblue, lightblue)"; break;
+        default: document.body.style.background = "linear-gradient(135deg, #1a1a1a 0%, #120000 100%)"; break;
+      }
+    }
+
+    function toggleParticles() {
+      particlesEnabled = !particlesEnabled;
+      if (!particlesEnabled) tsParticles.stop();
+      else tsParticles.start("tsparticles", options);
+    }
+
+    function setCloakTitle(title) {
+      document.title = title;
+      localStorage.setItem("cloakedTitle", title);
+      localStorage.setItem("cloakedFavicon", Array.from(document.querySelectorAll(".btn")).find(btn => btn.innerText.includes(title)).querySelector("img").src);
+      alert("Tab title set to: " + title);
+    }
+
+    // RESTORE QUICK CLOAKING TITLE ON RELOAD
+    window.addEventListener("load", () => {
+      const savedTitle = localStorage.getItem("cloakedTitle");
+      const savedFavicon = localStorage.getItem("cloakedFavicon");
+      if (savedTitle) document.title = savedTitle;
+
+      document.querySelectorAll('.btn').forEach(btn => {
+        if (btn.onclick?.toString().includes('document.title')) {
+          const title = btn.innerText.replace(/<[^>]*>?/g, '').trim();
+          const img = btn.querySelector('img');
+          if (img && savedTitle && title === savedTitle) {
+            btn.innerHTML = `<img class="favicon" src="${savedFavicon}"/>${savedTitle}`;
+          }
+        }
+      });
+    });
+
+    // PARTICLE JS OPTIONS
+    let particlesEnabled = true;
 
     const options = {
       fpsLimit: 60,
@@ -549,92 +888,38 @@
       },
       particles: {
         color: { value: "#ff1a1a" },
-        links: {
-          color: "#ff0000",
-          distance: 120,
-          enable: true,
-          opacity: 0.5,
-          width: 2
-        },
+        links: { color: "#ff0000", distance: 120, enable: true, opacity: 0.5, width: 2 },
         collisions: { enable: true },
-        move: {
-          direction: "none",
-          enable: true,
-          outMode: "bounce",
-          speed: 2
-        },
+        move: { direction: "none", enable: true, outMode: "bounce", speed: 2 },
         number: { density: { enable: true, area: 800 }, value: 50 },
         opacity: { value: 0.6 },
         shape: { type: "circle" },
-        size: { random: true, value: 5 }
-      },
-      detectRetina: true
+        size: { random: true, value: 5 },
+        detectRetina: true
+      }
     };
 
     tsParticles.load("tsparticles", options);
 
-    // Backtick key (`) launches redirect
-    document.addEventListener('keydown', function(event) {
-      if (event.key === '`') {
-        window.open(backtickRedirectUrl, '_blank');
-      }
-    });
-
-    // Ctrl+Q opens panic URL
+    // CTRL+Q Shortcut
     document.addEventListener('keydown', function(event) {
       if (event.ctrlKey && event.key === 'q') {
-        window.open(localStorage.getItem("panicUrl") || panicUrl, '_blank');
+        window.open(localStorage.getItem("panicUrl") || 'https://classroom.google.com ', '_blank');
       }
     });
 
-    // Leave Site Popup
+    // BACKTICK (`) Shortcut
+    document.addEventListener('keydown', function(event) {
+      if (event.key === '`') {
+        window.open(localStorage.getItem("panicUrl") || 'https://classroom.google.com ', '_blank');
+      }
+    });
+
+    // LEAVE SITE POPUP
     window.addEventListener('beforeunload', function(e) {
       e.preventDefault();
       e.returnValue = 'Changes you made may not be saved.';
     });
-
-   <script>
-  let panicUrl = 'https://classroom.google.com '; // Default panic URL
-
-  // Panic Button logic
-  function savePanicURL() {
-    const url = document.getElementById('panicUrlInput').value.trim();
-    if (url.length > 0) {
-      localStorage.setItem("panicUrl", url);
-      alert("Panic URL saved!");
-    } else {
-      alert("Please enter a valid URL.");
-    }
-  }
-
-  function uwuilovekids() {
-    const savedUrl = localStorage.getItem("panicUrl") || panicUrl;
-    if (savedUrl) {
-      window.open(savedUrl, '_blank');
-    } else {
-      alert("No Panic URL set yet. Please set one in Settings first.");
-    }
-  }
-
-  // Ctrl+Q handler
-  document.addEventListener('keydown', function(event) {
-    if (event.ctrlKey && event.key === 'q') {
-      const redirectUrl = localStorage.getItem("panicUrl") || panicUrl;
-      window.open(redirectUrl, '_blank');
-    }
-  });
-
-  // Backtick (`) handler
-  document.addEventListener('keydown', function(event) {
-    if (event.key === '`') {
-      const redirectUrl = localStorage.getItem("panicUrl") || panicUrl;
-      window.open(redirectUrl, '_blank');
-    }
-  });
-
-  // Native Leave Site Popup
-  window.addEventListener('beforeunload', function(e) {
-    e.preventDefault();
-    e.returnValue = 'Changes you made may not be saved.';
-  });
-</script>
+  </script>
+</body>
+</html>
