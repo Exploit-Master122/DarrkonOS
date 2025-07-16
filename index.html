@@ -615,311 +615,296 @@
   <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
 
-  <!-- SCRIPTS -->
-  <script>
-    const quotes = [
-      "Watch Brooklyn Nine Nine, It's a really good comedy...",
-      "Long live Szvy's account",
-      "I'm playing War Thunder",
-      "Velara Proxy sucks",
-      "Darrkon Network Rules!",
-      "The Pendragon Series by D.J. MacHale is GOOD",
-      "I am a minor!",
-      "Bully Stephen, he whacked me with his tennis racket!!",
-      "You're welcome for the money.You owe me.(You know who you are...) =-0",
-      "I'm tracking your IP address",
-      "I'm in Titanium Network!",
-      "Red Browser by LupineVault is really good",
-      "Microsoft Edge Sucks",
-      "Are you using Safari Browser?",
-      "Stop Doomscrolling Tiktok on my website!",
-      "I have partnered with Doge Unblocker",
-      "Press Control+h",
-      "Imagine Rickrolling in the Big 25's...",
-      "The roblox grind is crazy...",
-      "Swisscows search engine...But no google somehow.",
-      "Let's go,Jaydon Liu!! Thank you!!",
-      "If you search up freaky stuff on here,you will get BANNED from the discord.",   
-      "All of the people who helped me on this,you know who you are,THANK YOU!!",
-      "Jobi,a partner from Universal Unblocker made a version called FREAKY-UB. WHY?!",
-      "I like minors...",
-      "Too many sayings...",
-      "This took a lot of time to make...",
-      "Why are you on this site? Go and touch grass.",
-      "TOUCH GRASS!!"
-      "Deadshot.io is terrible.Rooftop snipers is better (Haha...)"
-    
-      
-      
-    
-    ];
+<!-- SCRIPTS -->
+<script>
+  const quotes = [
+    "Watch Brooklyn Nine Nine, It's a really good comedy...",
+    "Long live Szvy's account",
+    "I'm playing War Thunder",
+    "Velara Proxy sucks",
+    "Darrkon Network Rules!",
+    "The Pendragon Series by D.J. MacHale is GOOD",
+    "I am a minor!",
+    "Bully Stephen, he whacked me with his tennis racket!!",
+    "You're welcome for the money.You owe me.(You know who you are...) =-0",
+    "I'm tracking your IP address",
+    "I'm in Titanium Network!",
+    "Red Browser by LupineVault is really good",
+    "Microsoft Edge Sucks",
+    "Are you using Safari Browser?",
+    "Stop Doomscrolling Tiktok on my website!",
+    "I have partnered with Doge Unblocker",
+    "Press Control+h",
+    "Imagine Rickrolling in the Big 25's...",
+    "The roblox grind is crazy...",
+    "Swisscows search engine...But no google somehow.",
+    "Let's go,Jaydon Liu!! Thank you!!",
+    "If you search up freaky stuff on here,you will get BANNED from the discord.",
+    "All of the people who helped me on this,you know who you are,THANK YOU!!",
+    "Jobi,a partner from Universal Unblocker made a version called FREAKY-UB. WHY?!",
+    "I like minors...",
+    "Too many sayings...",
+    "This took a lot of time to make...",
+    "Why are you on this site? Go and touch grass.",
+    "TOUCH GRASS!!",
+    "Deadshot.io is terrible.Rooftop snipers is better (Haha...)",
+    "I need to practice advanced proportions...",
+    "Need to visit the Hub.GITHUB.WHAT WERE YOU THINKING?!",
+    "Qwen.AI is better than ChatGPT.",
+    "I wrote an essay called The Flaw in the System.I'm releasing it soon,it's fire.",
+    "Is space waves really that good?",
+    "The kids at my school are crazy.But seriously,I love you guys...Thanks for all the support,you know who you are!!"
+  ];
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const loadingQuote = document.getElementById("loadingQuote");
-      const loadingProgress = document.getElementById("loadingProgress");
+  document.addEventListener("DOMContentLoaded", () => {
+    const loadingQuote = document.getElementById("loadingQuote");
+    const loadingProgress = document.getElementById("loadingProgress");
 
-      let quoteIndex = Math.floor(Math.random() * quotes.length);
-      loadingQuote.textContent = quotes[quoteIndex];
+    let quoteIndex = Math.floor(Math.random() * quotes.length);
+    loadingQuote.textContent = quotes[quoteIndex];
 
-      const duration = Math.floor(Math.random() * 2000) + 4000;
-      let progress = 0;
-      const interval = 50;
-      const totalSteps = duration / interval;
+    const duration = Math.floor(Math.random() * 2000) + 4000;
+    let progress = 0;
+    const interval = 50;
+    const totalSteps = duration / interval;
 
-      function updateProgress() {
-        if (progress >= 100) return;
-        progress += 100 / totalSteps;
-        loadingProgress.style.width = `${Math.min(progress, 100)}%`;
-        setTimeout(updateProgress, interval);
+    function updateProgress() {
+      if (progress >= 100) return;
+      progress += 100 / totalSteps;
+      loadingProgress.style.width = `${Math.min(progress, 100)}%`;
+      setTimeout(updateProgress, interval);
+    }
+
+    updateProgress();
+
+    setTimeout(() => {
+      document.body.classList.add("loaded");
+    }, duration);
+
+    window.addEventListener('load', () => {
+      const savedProxy = localStorage.getItem("selectedProxy") || "framevault";
+      try {
+        document.querySelector(`input[value="${savedProxy}"]`).checked = true;
+      } catch (e) {
+        document.querySelector('input[value="framevault"]').checked = true;
       }
-
-      updateProgress();
-
-      setTimeout(() => {
-        document.body.classList.add("loaded");
-      }, duration);
-
-      window.addEventListener('load', () => {
-        const savedProxy = localStorage.getItem("selectedProxy") || "framevault";
-        try {
-          document.querySelector(`input[value="${savedProxy}"]`).checked = true;
-        } catch (e) {
-          document.querySelector('input[value="framevault"]').checked = true;
-        }
-
-        const cloakedTitle = localStorage.getItem("cloakedTitle");
-        const faviconUrl = localStorage.getItem("cloakedFavicon");
-        if (cloakedTitle && faviconUrl) {
-          document.querySelectorAll('.btn').forEach(btn => {
-            btn.innerHTML = `<img class="favicon" src="${faviconUrl}" />${cloakedTitle}`;
-          });
-        }
-
-        setCustomBackgroundFromStorage();
-      });
     });
+  });
 
-    // SEARCH ENGINES
-    const searchEngines = {
-      inetol: ' https://search.inetol.net/?q=',
-      ghoogler: ' https://shodan.io/search?q=',
-      swisscows: ' https://swisscows.com/en?query=',
-      edgeduck: ' https://edgedcircles.com/uv/service/hvtrs8%2F-svapt%2Cdwcidwcigm.aoo%2F?q='
-    };
+  // SEARCH ENGINES
+  const searchEngines = {
+    inetol: 'https://search.inetol.net/?q=',
+    ghoogler: ' https://ghoogle.org/search?q=',
+    swisscows: ' https://swisscows.com/en?query=',
+    edgeduck: ' https://edgedcircles.com/uv/service/hvtrs8%2F-svapt%2Cdwcidwcigm.aoo%2F?q='
+  };
 
-    let currentEngine = localStorage.getItem("searchEngine") || "inetol";
+  let currentEngine = localStorage.getItem("searchEngine") || "inetol";
 
-    // PROXY LAUNCH
-    function launchProxy(type) {
-      const url = document.getElementById('urlInput').value.trim();
-      const iframe = document.getElementById('movieFrame');
-      const selectedProxy = document.querySelector('input[name="proxySelector"]:checked')?.value || 'framevault';
+  function setSearchEngine(engine) {
+    localStorage.setItem("searchEngine", engine);
+    alert("Search engine set to: " + engine);
+  }
 
-      const proxyUrls = {
-        framevault: null,
-        rammerhead: " https://browser.rammerhead.org/ ",
-        ultraviolet: "https://edgedcircles.com/ ",
-        helios: "https://helios-browser.vercel.app/ ",
-        scramjet: null
-      };
+  function launchProxy(type) {
+    const url = document.getElementById('urlInput').value.trim();
+    const iframe = document.getElementById('movieFrame');
+    const selectedProxy = document.querySelector('input[name="proxySelector"]:checked')?.value || 'framevault';
 
-      if (!url) {
-        alert('Add the https:// to the URL, you lazy sloth!');
-        return;
-      }
-
-      if (url.startsWith('http')) {
-        iframe.src = url;
-      } else {
-        iframe.src = proxyUrls[selectedProxy] || searchEngines[currentEngine] + encodeURIComponent(url);
-      }
-
-      localStorage.setItem("selectedProxy", selectedProxy);
+    switch (selectedProxy) {
+      case 'framevault':
+        iframe.src = url.startsWith('http') ? url : searchEngines[currentEngine] + encodeURIComponent(url);
+        break;
+      case 'rammerhead':
+        iframe.src = " https://browser.rammerhead.org/ ";
+        break;
+      case 'ultraviolet':
+        iframe.src = "https://edgedcircles.com/ ";
+        break;
+      default:
+        alert("Selected proxy is not available.");
+        break;
     }
 
-    function setSearchEngine(engine) {
-      localStorage.setItem("searchEngine", engine);
-      currentEngine = engine;
-      alert("Search engine set to: " + engine);
+    localStorage.setItem("selectedProxy", selectedProxy);
+  }
+
+  function setCustomBackground() {
+    const url = document.getElementById('customBgUrl').value.trim();
+    if (url) {
+      document.body.style.backgroundImage = `url('${url}')`;
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundPosition = "center";
+      localStorage.setItem("customBgUrl", url);
+    } else {
+      alert("Please enter a valid image URL.");
     }
+  }
 
-    function setCustomBackground() {
-      const url = document.getElementById('customBgUrl').value.trim();
-      if (url) {
-        document.body.style.backgroundImage = `url('${url}')`;
-        document.body.style.backgroundSize = "cover";
-        document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundPosition = "center";
-        localStorage.setItem("customBgUrl", url);
-      } else {
-        alert("Please enter a valid image URL.");
-      }
+  function clearAuth() {
+    localStorage.removeItem("username");
+    document.getElementById('authContainer').style.display = 'block';
+    document.getElementById('topbar').style.display = 'none';
+    document.getElementById('passwordInput').value = '';
+    document.getElementById('usernameInput').value = '';
+  }
+
+  function resetAll() {
+    localStorage.clear();
+    location.reload();
+  }
+
+  function showTab(tabId, btn) {
+    document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+    document.querySelectorAll('.tabBtn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function toggleFullscreen(elementId) {
+    const el = document.getElementById(elementId);
+    if (!document.fullscreenElement) {
+      el.requestFullscreen().catch(err => alert(`Error attempting to enable full-screen: ${err.message}`));
+    } else {
+      document.exitFullscreen();
     }
+  }
 
-    function setCustomBackgroundFromStorage() {
-      const bg = localStorage.getItem("customBgUrl");
-      if (bg) {
-        document.body.style.backgroundImage = `url('${bg}')`;
-        document.body.style.backgroundSize = "cover";
-        document.body.style.backgroundRepeat = "no-repeat";
-        document.body.style.backgroundPosition = "center";
-      }
+  function checkPassword() {
+    const pw = document.getElementById('passwordInput').value;
+    if (pw === '5084820933') {
+      localStorage.setItem("username", document.getElementById('usernameInput').value);
+      document.getElementById('authContainer').style.display = 'none';
+      document.getElementById('topbar').style.display = 'flex';
+      alert("Data Saved! Successfully Logged in!!");
+    } else {
+      alert('Incorrect password. As a clue, check the source code... If you know how.');
     }
+  }
 
-    function clearAuth() {
-      localStorage.removeItem("username");
-      document.getElementById('authContainer').style.display = 'block';
-      document.getElementById('topbar').style.display = 'none';
-      document.getElementById('passwordInput').value = '';
-      document.getElementById('usernameInput').value = '';
-    }
+  function wtfisthis() {
+    alert("Bypass mode is always on!");
+  }
 
-    function resetAll() {
-      localStorage.clear();
-      location.reload();
-    }
+  function uwuwegotdaurl() {
+    const panicUrl = localStorage.getItem("panicUrl") || 'https://classroom.google.com  ';
+    window.open(panicUrl, '_blank');
+  }
 
-    function showTab(tabId, btn) {
-      document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
-      document.querySelectorAll('.tabBtn').forEach(b => b.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-      btn.classList.add('active');
-    }
+  function loadMovieSite(url) {
+    document.getElementById('movieFrameMovies').src = url.trim();
+  }
 
-    function toggleFullscreen(elementId) {
-      const el = document.getElementById(elementId);
-      if (!document.fullscreenElement) {
-        el.requestFullscreen().catch(err => alert(`Error attempting to enable full-screen: ${err.message}`));
-      } else {
-        document.exitFullscreen();
-      }
-    }
+  function launchDataCloak() {
+    alert("Data Cloak feature coming soon!");
+  }
 
-    function checkPassword() {
-      const pw = document.getElementById('passwordInput').value;
-      if (pw === '5084820933') {
-        localStorage.setItem("username", document.getElementById('usernameInput').value);
-        document.getElementById('authContainer').style.display = 'none';
-        document.getElementById('topbar').style.display = 'flex';
-        alert("Data Saved! Successfully Logged in!!");
-      } else {
-        alert('Incorrect password. As a clue, check the source code... If you know how.');
-      }
-    }
+  function launchKahoot() {
+    alert("Go to https://tinyurl.com/szvylauncher  Credits to Szvy.win for this part, follow her on github and discord! =-D If it does not work, try it in the browser.");
+  }
 
-    function wtfisthis() {
-      alert("Bypass mode is always on!");
-    }
+  // PARTICLE JS OPTIONS
+  let particlesEnabled = true;
 
-    function uwuwegotdaurl() {
-      const panicUrl = localStorage.getItem("panicUrl") || 'https://classroom.google.com  ';
-      window.open(panicUrl, '_blank');
-    }
-
-    function loadMovieSite(url) {
-      document.getElementById('movieFrameMovies').src = url.trim();
-    }
-
-    function launchDataCloak() {
-      alert("Data Cloak feature coming soon!");
-    }
-
-    function launchKahoot() {
-      alert("Go to https://tinyurl.com/szvylauncher  Credits to Szvy.win for this part, follow her on github and discord! =-D If it does not work, try it in the browser.");
-    }
-
-    // THEME SWITCHER
-    function setTheme(theme) {
-      switch (theme) {
-        case 'bubblegum': document.body.style.background = "linear-gradient(to right, pink, hotpink)"; break;
-        case 'darknight': document.body.style.background = "#000"; break;
-        case 'ocean': document.body.style.background = "linear-gradient(to right, darkblue, navy)"; break;
-        case 'blueskies': document.body.style.background = "linear-gradient(to right, skyblue, lightblue)"; break;
-        default: document.body.style.background = "linear-gradient(135deg, #1a1a1a 0%, #120000 100%)"; break;
-      }
-    }
-
-    function toggleParticles() {
-      particlesEnabled = !particlesEnabled;
-      if (!particlesEnabled) tsParticles.stop();
-      else tsParticles.start("tsparticles", options);
-    }
-
-    function setCloakTitle(title) {
-      document.title = title;
-      localStorage.setItem("cloakedTitle", title);
-      localStorage.setItem("cloakedFavicon", Array.from(document.querySelectorAll(".btn")).find(btn => btn.innerText.includes(title)).querySelector("img").src);
-      alert("Tab title set to: " + title);
-    }
-
-    // RESTORE QUICK CLOAKING TITLE ON RELOAD
-    window.addEventListener("load", () => {
-      const savedTitle = localStorage.getItem("cloakedTitle");
-      const savedFavicon = localStorage.getItem("cloakedFavicon");
-      if (savedTitle) document.title = savedTitle;
-
-      document.querySelectorAll('.btn').forEach(btn => {
-        if (btn.onclick?.toString().includes('document.title')) {
-          const title = btn.innerText.replace(/<[^>]*>?/g, '').trim();
-          const img = btn.querySelector('img');
-          if (img && savedTitle && title === savedTitle) {
-            btn.innerHTML = `<img class="favicon" src="${savedFavicon}"/>${savedTitle}`;
-          }
-        }
-      });
-    });
-
-    // PARTICLE JS OPTIONS
-    let particlesEnabled = true;
-
-    const options = {
-      fpsLimit: 60,
-      interactivity: {
-        detectsOn: "canvas",
-        events: {
-          onHover: { enable: true, mode: "repulse" },
-          onClick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          repulse: { distance: 100, duration: 0.4 },
-          push: { quantity: 4 }
-        }
+  const options = {
+    fpsLimit: 60,
+    interactivity: {
+      detectsOn: "canvas",
+      events: {
+        onHover: { enable: true, mode: "repulse" },
+        onClick: { enable: true, mode: "push" },
+        resize: true
       },
-      particles: {
-        color: { value: "#ff1a1a" },
-        links: { color: "#ff0000", distance: 120, enable: true, opacity: 0.5, width: 2 },
-        collisions: { enable: true },
-        move: { direction: "none", enable: true, outMode: "bounce", speed: 2 },
-        number: { density: { enable: true, area: 800 }, value: 50 },
-        opacity: { value: 0.6 },
-        shape: { type: "circle" },
-        size: { random: true, value: 5 },
-        detectRetina: true
+      modes: {
+        repulse: { distance: 100, duration: 0.4 },
+        push: { quantity: 4 }
       }
-    };
+    },
+    particles: {
+      color: { value: "#ff1a1a" },
+      links: {
+        color: "#ff0000",
+        distance: 120,
+        enable: true,
+        opacity: 0.5,
+        width: 2
+      },
+      collisions: { enable: true },
+      move: {
+        direction: "none",
+        enable: true,
+        outMode: "bounce",
+        speed: 2
+      },
+      number: { density: { enable: true, area: 800 }, value: 50 },
+      opacity: { value: 0.6 },
+      shape: { type: "circle" },
+      size: { random: true, value: 5 }
+    },
+    detectRetina: true
+  };
 
-    tsParticles.load("tsparticles", options);
+  tsParticles.load("tsparticles", options);
 
-    // CTRL+Q Shortcut
-    document.addEventListener('keydown', function(event) {
-      if (event.ctrlKey && event.key === 'q') {
-        window.open(localStorage.getItem("panicUrl") || 'https://classroom.google.com ', '_blank');
+  // THEME SWITCHER
+  function setTheme(theme) {
+    switch (theme) {
+      case 'bubblegum': document.body.style.background = "linear-gradient(to right, pink, hotpink)"; break;
+      case 'darknight': document.body.style.background = "#000"; break;
+      case 'ocean': document.body.style.background = "linear-gradient(to right, darkblue, navy)"; break;
+      case 'blueskies': document.body.style.background = "linear-gradient(to right, skyblue, lightblue)"; break;
+      default: document.body.style.background = "linear-gradient(135deg, #1a1a1a 0%, #120000 100%)"; break;
+    }
+  }
+
+  function toggleParticles() {
+    particlesEnabled = !particlesEnabled;
+    if (!particlesEnabled) tsParticles.stop();
+    else tsParticles.start("tsparticles", options);
+  }
+
+  function setCloakTitle(title) {
+    document.title = title;
+    localStorage.setItem("cloakedTitle", title);
+    localStorage.setItem("cloakedFavicon", Array.from(document.querySelectorAll(".btn")).find(btn => btn.innerText.includes(title)).querySelector("img").src);
+    alert("Tab title set to: " + title);
+  }
+
+  // RESTORE QUICK CLOAKING TITLE ON RELOAD
+  window.addEventListener("load", () => {
+    const savedTitle = localStorage.getItem("cloakedTitle");
+    const savedFavicon = localStorage.getItem("cloakedFavicon");
+    if (savedTitle) document.title = savedTitle;
+
+    document.querySelectorAll('.btn').forEach(btn => {
+      if (btn.onclick?.toString().includes('document.title')) {
+        const title = btn.innerText.replace(/<[^>]*>?/g, '').trim();
+        const img = btn.querySelector("img");
+        if (img && savedTitle && title === savedTitle) {
+          btn.innerHTML = `<img class="favicon" src="${savedFavicon}"/>${savedTitle}`;
+        }
       }
     });
+  });
 
-    // BACKTICK (`) Shortcut
-    document.addEventListener('keydown', function(event) {
-      if (event.key === '`') {
-        window.open(localStorage.getItem("panicUrl") || 'https://classroom.google.com ', '_blank');
-      }
-    });
+  // CTRL+Q Shortcut
+  document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 'q') {
+      window.open(localStorage.getItem("panicUrl") || 'https://classroom.google.com  ', '_blank');
+    }
+  });
 
-    // LEAVE SITE POPUP
-    window.addEventListener('beforeunload', function(e) {
-      e.preventDefault();
-      e.returnValue = 'Changes you made may not be saved.';
-    });
-  </script>
-</body>
-</html>
+  // BACKTICK (`) Shortcut
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '`') {
+      window.open(localStorage.getItem("panicUrl") || 'https://classroom.google.com  ', '_blank');
+    }
+  });
+
+  // LEAVE SITE POPUP
+  window.addEventListener('beforeunload', function(e) {
+    e.preventDefault();
+    e.returnValue = 'Changes you made may not be saved.';
+  });
+</script>
