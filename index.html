@@ -626,7 +626,7 @@
     "The Pendragon Series by D.J. MacHale is GOOD",
     "I am a minor!",
     "Bully Stephen, he whacked me with his tennis racket!!",
-    "You're welcome for the money.You owe me.(You know who you are...) =-0",
+    "You're welcome for the money. You owe me. (You know who you are...) =-0",
     "I'm tracking your IP address",
     "I'm in Titanium Network!",
     "Red Browser by LupineVault is really good",
@@ -638,29 +638,29 @@
     "Imagine Rickrolling in the Big 25's...",
     "The roblox grind is crazy...",
     "Swisscows search engine...But no google somehow.",
-    "Let's go,Jaydon Liu!! Thank you!!",
-    "If you search up freaky stuff on here,you will get BANNED from the discord.",
-    "All of the people who helped me on this,you know who you are,THANK YOU!!",
-    "Jobi,a partner from Universal Unblocker made a version called FREAKY-UB. WHY?!",
-    "I like minors...",
+    "Let's go, Jaydon Liu!! Thank you!!",
+    "If you search up freaky stuff on here, you will get BANNED from the discord.",
+    "All of the people who helped me on this, you know who you are, THANK YOU!!",
+    "Jobi, a partner from Universal Unblocker made a version called FREAKY-UB. WHY?!",
+    "I like minors...Because I AM A MINOR (GET OUTT)", // This line is crazy
     "Too many sayings...",
     "This took a lot of time to make...",
     "Why are you on this site? Go and touch grass.",
     "TOUCH GRASS!!",
-    "Deadshot.io is terrible.Rooftop snipers is better (Haha...)",
+    "Deadshot.io is terrible. Rooftop snipers is better (Haha...)",
     "I need to practice advanced proportions...",
-    "Need to visit the Hub.GITHUB.WHAT WERE YOU THINKING?!",
+    "Need to visit the Hub. GITHUB. WHAT WERE YOU THINKING?!",
     "Qwen.AI is better than ChatGPT.",
-    "I wrote an essay called The Flaw in the System.I'm releasing it soon,it's fire.",
+    "I wrote an essay called The Flaw in the System. I'm releasing it soon, it's fire.",
     "Is space waves really that good?",
-    "The kids at my school are crazy.But seriously,I love you guys...Thanks for all the support,you know who you are!!"
+    "The kids at my school are crazy. But seriously, I love you guys... Thanks for all the support, you know who you are!!"
   ];
 
   document.addEventListener("DOMContentLoaded", () => {
     const loadingQuote = document.getElementById("loadingQuote");
     const loadingProgress = document.getElementById("loadingProgress");
 
-    let quoteIndex = Math.floor(Math.random() * quotes.length);
+    const quoteIndex = Math.floor(Math.random() * quotes.length);
     loadingQuote.textContent = quotes[quoteIndex];
 
     const duration = Math.floor(Math.random() * 2000) + 4000;
@@ -680,23 +680,13 @@
     setTimeout(() => {
       document.body.classList.add("loaded");
     }, duration);
-
-    window.addEventListener('load', () => {
-      const savedProxy = localStorage.getItem("selectedProxy") || "framevault";
-      try {
-        document.querySelector(`input[value="${savedProxy}"]`).checked = true;
-      } catch (e) {
-        document.querySelector('input[value="framevault"]').checked = true;
-      }
-    });
   });
 
-  // SEARCH ENGINES
   const searchEngines = {
     inetol: 'https://search.inetol.net/?q=',
-    ghoogler: ' https://ghoogle.org/search?q=',
-    swisscows: ' https://swisscows.com/en?query=',
-    edgeduck: ' https://edgedcircles.com/uv/service/hvtrs8%2F-svapt%2Cdwcidwcigm.aoo%2F?q='
+    ghoogler: 'https://ghoogle.org/search?q=',
+    swisscows: 'https://swisscows.com/en?query=',
+    edgeduck: 'https://edgedcircles.com/uv/service/hvtrs8%2F-svapt%2Cdwcidwcigm.aoo%2F?q='
   };
 
   let currentEngine = localStorage.getItem("searchEngine") || "inetol";
@@ -706,7 +696,7 @@
     alert("Search engine set to: " + engine);
   }
 
-  function launchProxy(type) {
+  function launchProxy() {
     const url = document.getElementById('urlInput').value.trim();
     const iframe = document.getElementById('movieFrame');
     const selectedProxy = document.querySelector('input[name="proxySelector"]:checked')?.value || 'framevault';
@@ -716,10 +706,10 @@
         iframe.src = url.startsWith('http') ? url : searchEngines[currentEngine] + encodeURIComponent(url);
         break;
       case 'rammerhead':
-        iframe.src = " https://browser.rammerhead.org/ ";
+        iframe.src = "https://browser.rammerhead.org/";
         break;
       case 'ultraviolet':
-        iframe.src = "https://edgedcircles.com/ ";
+        iframe.src = "https://edgedcircles.com/";
         break;
       default:
         alert("Selected proxy is not available.");
@@ -788,7 +778,7 @@
   }
 
   function uwuwegotdaurl() {
-    const panicUrl = localStorage.getItem("panicUrl") || 'https://classroom.google.com  ';
+    const panicUrl = localStorage.getItem("panicUrl") || 'https://classroom.google.com';
     window.open(panicUrl, '_blank');
   }
 
@@ -801,10 +791,9 @@
   }
 
   function launchKahoot() {
-    alert("Go to https://tinyurl.com/szvylauncher  Credits to Szvy.win for this part, follow her on github and discord! =-D If it does not work, try it in the browser.");
+    alert("Go to https://tinyurl.com/szvylauncher. Credits to Szvy.win for this part, follow her on GitHub and Discord! =-D If it does not work, try it in the browser.");
   }
 
-  // PARTICLE JS OPTIONS
   let particlesEnabled = true;
 
   const options = {
@@ -847,7 +836,6 @@
 
   tsParticles.load("tsparticles", options);
 
-  // THEME SWITCHER
   function setTheme(theme) {
     switch (theme) {
       case 'bubblegum': document.body.style.background = "linear-gradient(to right, pink, hotpink)"; break;
@@ -867,42 +855,44 @@
   function setCloakTitle(title) {
     document.title = title;
     localStorage.setItem("cloakedTitle", title);
-    localStorage.setItem("cloakedFavicon", Array.from(document.querySelectorAll(".btn")).find(btn => btn.innerText.includes(title)).querySelector("img").src);
+    const btn = Array.from(document.querySelectorAll(".btn")).find(b => b.innerText.includes(title));
+    if (btn) {
+      const img = btn.querySelector("img");
+      if (img) localStorage.setItem("cloakedFavicon", img.src);
+    }
     alert("Tab title set to: " + title);
   }
 
-  // RESTORE QUICK CLOAKING TITLE ON RELOAD
   window.addEventListener("load", () => {
     const savedTitle = localStorage.getItem("cloakedTitle");
     const savedFavicon = localStorage.getItem("cloakedFavicon");
     if (savedTitle) document.title = savedTitle;
 
     document.querySelectorAll('.btn').forEach(btn => {
-      if (btn.onclick?.toString().includes('document.title')) {
-        const title = btn.innerText.replace(/<[^>]*>?/g, '').trim();
-        const img = btn.querySelector("img");
-        if (img && savedTitle && title === savedTitle) {
-          btn.innerHTML = `<img class="favicon" src="${savedFavicon}"/>${savedTitle}`;
-        }
+      const title = btn.innerText.replace(/<[^>]*>?/g, '').trim();
+      const img = btn.querySelector("img");
+      if (img && savedTitle && title === savedTitle) {
+        btn.innerHTML = `<img class="favicon" src="${savedFavicon}"/>${savedTitle}`;
       }
     });
+
+    const savedProxy = localStorage.getItem("selectedProxy") || "framevault";
+    try {
+      document.querySelector(`input[value="${savedProxy}"]`).checked = true;
+    } catch (e) {
+      document.querySelector('input[value="framevault"]').checked = true;
+    }
   });
 
-  // CTRL+Q Shortcut
   document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.key === 'q') {
-      window.open(localStorage.getItem("panicUrl") || 'https://classroom.google.com  ', '_blank');
+      window.open(localStorage.getItem("panicUrl") || 'https://classroom.google.com', '_blank');
     }
-  });
-
-  // BACKTICK (`) Shortcut
-  document.addEventListener('keydown', function(event) {
     if (event.key === '`') {
-      window.open(localStorage.getItem("panicUrl") || 'https://classroom.google.com  ', '_blank');
+      window.open(localStorage.getItem("panicUrl") || 'https://classroom.google.com', '_blank');
     }
   });
 
-  // LEAVE SITE POPUP
   window.addEventListener('beforeunload', function(e) {
     e.preventDefault();
     e.returnValue = 'Changes you made may not be saved.';
