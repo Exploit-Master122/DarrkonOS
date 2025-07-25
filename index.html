@@ -5,6 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Darrkon</title>
 
+ 
+  
+  <canvas id="particles"></canvas>
+<script>
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const particles = [];
+for(let i = 0; i < 100; i++) {
+    particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 2,
+        vy: (Math.random() - 0.5) * 2
+    });
+}
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+</script>
+  
+
+  
+  
   <!-- LOADER STYLES -->
   <style>
     .loading-screen {
@@ -96,7 +133,7 @@
   <div class="tab-content" id="cloakTab">
     <div class="container">
       <div class="header">Cloaking</div>
-      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/Darrkonv6/blob/main/darrkon.html ', '_blank')">Download File...</button>
+      <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/DarrkonOS/blob/main/index.html ', '_blank')">Download File...</button>
       <button class="btn" onclick="window.open('https://thelearningcentral.global.ssl.fastly.net/math.html?u=/szvy/szvy/hvtrs8%2F-dwcidwcigm.aoo', '_blank')">Szvy Duckduckgo!...</button>
       <button class="btn" onclick="window.open('https://github.com/Exploit-Master122/Darrkonv6/blob/main/readme4.md ', '_blank')">Github Pages Deployment</button>
     </div>
@@ -191,6 +228,9 @@
         <button class="btn" onclick="loadMovieSite('https://1games.io/ ')">1Games.io (REALLY GOOD)</button>
         <button class="btn" onclick="loadMovieSite('https://drivemad.com ')">DriveMad.Com</button>
         <button class="btn" onclick="loadMovieSite('https://dogeub-v4-snowy.vercel.app/mastery?auth=hwp2d19 ')">Crazygames</button>
+        <button class="btn" onclick="loadMovieSite('https://exploit-master122.github.io/DarrkonOS/ ')">Double Cloaking (Really Good)</button>
+        <button class="btn" onclick="loadMovieSite('https://exploit-master122.github.io/FridayNightFunkin/ ')">Friday Night Funkin'</button>
+        <button class="btn" onclick="loadMovieSite('https://advanced-orchestra.site/ ')">US4 Browser</button>
         <button class="btn" onclick="toggleFullscreen('movieFrameMovies')">Fullscreen(Click me! 🙃)</button>
       </div>
       <div id="movieFrameContainerMovies" style="margin-top: 20px; width: 100%;">
@@ -238,7 +278,8 @@
       <div class="header">Info/Contact</div>
       <a href="https://github.com/Exploit-Master122/Credits... " target="_blank">Credits!! (Please Click these links)</a><br>
       <a href="https://exploit-master122.github.io/darrkonad/ " target="_blank">Darrkon Ad/Discord</a><br>
-      <a href="https://www.patreon.com/c/DarrkonNetwork " target="_blank">Buy/Donate Darrkon v7 Patreon</a><br>
+      <a href="https://www.patreon.com/c/DarrkonNetwork " target="_blank">Buy/Donate Darrkon v7</a><br>
+      <a href="https://github.com/Exploit-Master122/LegalPolicy/ " target="_blank">Legal Policy</a><br>
     </div>
   </div>
 
@@ -266,21 +307,21 @@
 
       <div class="header" style="margin-top: 20px;">Quick Cloaking</div>
       <div class="btn-container">
-        <button class="btn" onclick="setCloakTitle('Google Docs')"><img class="favicon" src="https://www.google.com/favicon.ico "/>Google Docs</button>
-        <button class="btn" onclick="setCloakTitle('Classroom')"><img class="favicon" src="https://ssl.gstatic.com/classroom/favicon.png "/>Classroom</button>
-        <button class="btn" onclick="setCloakTitle('Home')"><img class="favicon" src="https://schoolwork.broomleigh.org/assets/img/docs.webp "/>Home</button>
-        <button class="btn" onclick="setCloakTitle('New Tab')"><img class="favicon" src="https://raw.githubusercontent.com/chromium/chromium/main/chrome/app/theme/default_200_percent/common/favicon_ntp.png "/>New Tab</button>
-        <button class="btn" onclick="setCloakTitle('Aeries Login')"><img class="favicon" src="https://castrovalleyusd.asp.aeries.net/student/images/Combomark_Transparent.svg "/>Aeries Login</button>
-        <button class="btn" onclick="setCloakTitle('CPM Math')"><img class="favicon" src="https://sso.cpm.org/images/CPMCompact.svg "/>CPM Math</button>
+        <button class="btn" onclick="setCloakTitle('Google Docs')"><img class="favicon" src="https://www.google.com/favicon.ico"/>Google Docs</button>
+        <button class="btn" onclick="setCloakTitle('Classroom')"><img class="favicon" src="https://ssl.gstatic.com/classroom/favicon.png"/>Classroom</button>
+        <button class="btn" onclick="setCloakTitle('Home')"><img class="favicon" src="https://schoolwork.broomleigh.org/assets/img/docs.webp"/>Home</button>
+        <button class="btn" onclick="setCloakTitle('New Tab')"><img class="favicon" src="https://raw.githubusercontent.com/chromium/chromium/main/chrome/app/theme/default_200_percent/common/favicon_ntp.png"/>New Tab</button>
+        <button class="btn" onclick="setCloakTitle('Aeries Login')"><img class="favicon" src="https://castrovalleyusd.asp.aeries.net/student/images/Combomark_Transparent.svg"/>Aeries Login</button>
+        <button class="btn" onclick="setCloakTitle('CPM Math')"><img class="favicon" src="https://sso.cpm.org/images/CPMCompact.svg"/>CPM Math</button>
       </div>
 
       <div class="header" style="margin-top: 20px;">Customize Look</div>
       <div class="btn-container">
         <button class="btn" onclick="toggleParticles()">Toggle Particles</button>
-        <button class="btn" onclick="setTheme('bubblegum')">Bubblegum (Pink)</button>
-        <button class="btn" onclick="setTheme('darknight')">Dark Night (Black)</button>
-        <button class="btn" onclick="setTheme('ocean')">Ocean </button>
-        <button class="btn" onclick="setTheme('blueskies')">Blue Skies (Sky)</button>
+        <button class="btn" onclick="setTheme('bubblegum')">Bubblegum</button>
+        <button class="btn" onclick="setTheme('darknight')">Dark Night</button>
+        <button class="btn" onclick="setTheme('ocean')">Ocean</button>
+        <button class="btn" onclick="setTheme('blueskies')">Blue Skies</button>
         <button class="btn" onclick="setTheme('default')">Default Theme</button>
       </div>
 
@@ -296,15 +337,15 @@
         <label class="proxy-option">
           <input type="radio" name="proxySelector" value="rammerhead" class="proxy-radio">
           <div class="proxy-info">
-            <div class="proxy-label">Rammerhead</div>
-            <div class="proxy-desc">Uses Rammerhead proxy engine,by Simon Cheng.Good for websites like GeForce Now or Discord.(Good browser)</div>
+            <div class="proxy-label">Rammerhead (Simon Cheng)</div>
+            <div class="proxy-desc">Uses Rammerhead proxy engine.Good for websites like GeForce Now or Discord.(Good browser)</div>
           </div>
         </label>
         <label class="proxy-option">
           <input type="radio" name="proxySelector" value="ultraviolet" class="proxy-radio">
           <div class="proxy-info">
-            <div class="proxy-label">Ultraviolet</div>
-            <div class="proxy-desc">Uses JS Serviceworkers.Good for websites like poki.com or chatgpt.Made by Jaydon Lui and Titanium Network.(Very Good,but Temperamental) </div>
+            <div class="proxy-label">Ultraviolet (Jaydon Liu)</div>
+            <div class="proxy-desc">Uses JS Serviceworkers.Good for websites like poki.com or chatgpt.(Very Good,but Temperamental) </div>
           </div>
         </label>
         <label class="proxy-option">
@@ -326,9 +367,9 @@
       <div class="header" style="margin-top: 20px;">Search Engine</div>
       <div class="btn-container">
         <button class="btn" onclick="setSearchEngine('inetol')">SearXNG (German) Web</button>
-        <button class="btn" onclick="setSearchEngine('ghoogle')">Shodan Search</button>
+        <button class="btn" onclick="setSearchEngine('ghoogle')">Google</button>
         <button class="btn" onclick="setSearchEngine('swisscows')">SwissCows</button>
-        <button class="btn" onclick="setSearchEngine('edgeduck')">Duckduckgo</button>
+        <button class="btn" onclick="setSearchEngine('edgeduck')">Duckduckgo (Reccomended)</button>
       </div>
 
       <div class="header" style="margin-top: 20px;">Custom Background</div>
@@ -620,9 +661,10 @@
 <script>
   const quotes = [
     "Watch Brooklyn Nine Nine, It's a really good comedy...",
-    "Long live Szvy's account",
+    "Vplaza Gaming Sux...",
+    "Long live Szvy's account!",
     "I'm playing War Thunder",
-    "Velara Proxy sucks",
+    "Velara Proxy sucks,too...",
     "Darrkon Network Rules!",
     "The Pendragon Series by D.J. MacHale is GOOD",
     "I am a minor!",
@@ -639,7 +681,7 @@
     "Imagine Rickrolling in the Big 25's...",
     "The roblox grind is crazy...",
     "Swisscows search engine...But no google somehow.",
-    "Let's go, Jaydon Liu!! Thank you!!",
+    "Let's go, Jaydon Lui!! Thank you!!",
     "If you search up freaky stuff on here, you will get BANNED from the discord.",
     "All of the people who helped me on this, you know who you are, THANK YOU!!",
     "Jobi, a partner from Universal Unblocker made a version called FREAKY-UB. WHY?!",
@@ -684,8 +726,8 @@
   });
 
   const searchEngines = {
-    inetol: 'https://search.inetol.net/?q=',
-    ghoogler: 'https://ghoogle.org/search?q=',
+    inetol: 'https://paulgo.io/?q=',
+    ghoogler: 'https://www.google.com/?safe=active&ssui=on/search?q=',
     swisscows: 'https://swisscows.com/en?query=',
     edgeduck: 'https://edgedcircles.com/uv/service/hvtrs8%2F-svapt%2Cdwcidwcigm.aoo%2F?q='
   };
@@ -707,7 +749,7 @@
         iframe.src = url.startsWith('http') ? url : searchEngines[currentEngine] + encodeURIComponent(url);
         break;
       case 'rammerhead':
-        iframe.src = "https://browser.rammerhead.org/";
+        iframe.src = "https://108.181.32.77.nip.io/";
         break;
       case 'ultraviolet':
         iframe.src = "https://edgedcircles.com/";
