@@ -190,7 +190,6 @@
         <button class="btn" onclick="loadMovieSite(' https://calculus.fasoclash.com/&?q=Geforce%20Now')">Space Browser</button>
         <button class="btn" onclick="loadMovieSite(' https://classroom6x-plus.github.io/new/ ')">Clasroom6x</button>
         <button class="btn" onclick="loadMovieSite('https://history.rest/math.html?u=/szvy/szvy/hvtrs8%2F-cnowd%2Cbmoqtgrmif.aoo%2Fcuvh-rggksvep')">Boosteroid Cloud Gaming</button>
-        <button class="btn" onclick="loadMovieSite(' https://kozow-25.lovable.app/ ')">Link Generator</button>
         <button class="btn" onclick="loadMovieSite('https://app.flamepass.com/ ')">Flampass.App</button>
         <button class="btn" onclick="loadMovieSite('https://1games.io/ ')">1Games.io (REALLY GOOD)</button>
         <button class="btn" onclick="loadMovieSite('https://drivemad.com ')">DriveMad.Com</button>
@@ -198,6 +197,9 @@
         <button class="btn" onclick="loadMovieSite('https://exploit-master122.github.io/DarrkonOS/ ')">Double Cloaking (Really Good)</button>
         <button class="btn" onclick="loadMovieSite('https://exploit-master122.github.io/FridayNightFunkin/ ')">Friday Night Funkin'</button>
         <button class="btn" onclick="loadMovieSite('https://advanced-orchestra.site/ ')">US4 Browser</button>
+        <button class="btn" onclick="loadMovieSite('https://exploit-master122.github.io/Schoolwork7thgrade/ ')">Link Generator</button>
+        <button class="btn" onclick="loadMovieSite('https://1v1.lol')">Ultrakill Cloud</button>
+        <button class="btn" onclick="loadMovieSite('https://jblaha.art/sketchbook/')">Sketchbook Sandbox</button>
         <button class="btn" onclick="toggleFullscreen('movieFrameMovies')">Fullscreen(Click me! 🙃)</button>
       </div>
       <div id="movieFrameContainerMovies" style="margin-top: 20px; width: 100%;">
@@ -323,6 +325,20 @@
           </div>
         </label>
         <label class="proxy-option">
+          <input type="radio" name="proxySelector" value="shadow" class="proxy-radio">
+          <div class="proxy-info">
+            <div class="proxy-label">ShadowOS(https://shai.tecnova.com.br/)</div>
+            <div class="proxy-desc">A better-looking version of Helios,and functional with Ultraviolet...Turn off popups for the link.</div>
+          </div>
+        </label>
+        <label class="proxy-option">
+          <input type="radio" name="proxySelector" value="wombatserver" class="proxy-radio">
+          <div class="proxy-info">
+            <div class="proxy-label">WOMGNIX</div>
+            <div class="proxy-desc">Also made by Simon Cheng,a proxy built for websites like bloxd.io or Github.Wombat and NGNIX server.</div>
+          </div>
+        </label>
+        <label class="proxy-option">
           <input type="radio" name="proxySelector" value="scramjet" class="proxy-radio" disabled>
           <div class="proxy-info">
             <div class="proxy-label">ScramJet</div>
@@ -333,15 +349,15 @@
 
       <div class="header" style="margin-top: 20px;">Search Engine</div>
       <div class="btn-container">
-        <button class="btn" onclick="setSearchEngine('inetol')">SearXNG (German) Web</button>
-        <button class="btn" onclick="setSearchEngine('ghoogle')">Google</button>
-        <button class="btn" onclick="setSearchEngine('swisscows')">SwissCows</button>
-        <button class="btn" onclick="setSearchEngine('edgeduck')">Duckduckgo (Reccomended)</button>
+        <button class="btn" onclick="setSearchEngine('SearXGerman')">SearXNG (German) Web</button>
+        <button class="btn" onclick="setSearchEngine('NormalGoogle')">Google</button>
+        <button class="btn" onclick="setSearchEngine('Swisscows')">SwissCows</button>
+        <button class="btn" onclick="setSearchEngine('Duckduckgo')">Duckduckgo (Proxied)</button>
       </div>
 
       <div class="header" style="margin-top: 20px;">Custom Background</div>
       <input type="text" id="customBgUrl" placeholder="Enter an Image or GIF URL." />
-      <button class="btn" onclick="setCustomBackground()">Apply Custom Background</button>
+      <button class="btn" onclick="setCustomBackground()">Install Theme</button>
 
       <p style="margin-top: 20px;">Join the Discord for more links, updates, web dev, and more!<br><a href="https://discord.gg/fWcUWqCy " target="_blank">Launch Discord</a></p>
       <p>Press Ctrl+Q and it will redirect you to Google Classroom.<br>Bypass mode is always on—it enables the leave site popup. <br>To toggle Panic Button, read https://shorturl.at/AsmCf <br> To search,set the proxy to iframe. </p>
@@ -696,17 +712,17 @@
   });
 
   const searchEngines = {
-    inetol: 'https://paulgo.io/?q=',
-    ghoogler: 'https://www.google.com/?safe=active&ssui=on/search?q=',
-    swisscows: 'https://swisscows.com/en?query=',
-    edgeduck: 'https://edgedcircles.com/uv/service/hvtrs8%2F-svapt%2Cdwcidwcigm.aoo%2F?q='
+    SearXGerman: 'https://uvv2.rhw.one/active/uv/service/hvtrs8%2F-pcungm.ko-',
+    NormalGoogle: 'https://www.google.com/?safe=active&ssui=on/search?q=',
+    Swisscows: 'https://swisscows.com/en?query=',
+    Duckduckgo: 'https://womginx.arph.org/main/https://start.duckduckgo.com/'
   };
 
-  let currentEngine = localStorage.getItem("searchEngine") || "inetol";
+  let currentEngine = localStorage.getItem("searchEngine") || "SearXGerman";
 
   function setSearchEngine(engine) {
     localStorage.setItem("searchEngine", engine);
-    alert("Search engine set to: " + engine);
+    alert("Your Search engine is now: " + engine);
   }
 
   function launchProxy() {
@@ -721,8 +737,17 @@
       case 'rammerhead':
         iframe.src = "https://108.181.32.77.nip.io/";
         break;
-      case 'ultraviolet':
-        iframe.src = "https://edgedcircles.com/";
+        case 'helios':
+        iframe.src = "https://exploit-master122.github.io/Helios-v2/";
+        break;
+         case 'shadow':
+        iframe.src = "https://shai.tecnova.com.br/";
+        break;
+        case 'wombatserver':
+        iframe.src = "https://womginx.arph.org/";
+        break;
+        case 'ultraviolet':
+        iframe.src = "https://uvv2.rhw.one/active/";
         break;
       default:
         alert("Selected proxy is not available.");
